@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NavDhara | Insights</title>
+  <link rel="stylesheet" href="insights.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="insights.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="/final_logo_fs_(1)[1].png" alt="EcoForge Logo" />
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/calculator.html">Calculator</a></li>
+        <li><a href="/about.html">About Us</a></li>
+        <li><a href="/faq.html">FAQs</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+      <span class="nav-highlight"></span>
+    </nav>
+  </header>
+    <!-- Top Center Element -->
+<div class="top-center">
+  <!-- <img src="insights.png" alt="Top Element" class="center-element"> -->
+  <h1>Visual Insights</h1>
+  <button class="download-btn">Download Report</button>
+</div>
+
+<!-- Charts Section -->
+  <main>
+    <section class="charts">
+      <div class="chart-card"><canvas id="impactSummary"></canvas><p class="chart-title">Impact Summary Chart</p></div>
+
+      <div class="chart-card">
+        <table id="materialComparisonTable" class="material-table">
+          <thead>
+            <tr>
+              <th>Material</th>
+              <th>CO₂ (kg/kg)</th>
+              <th>Energy (MJ/kg)</th>
+              <th>Water (L/kg)</th>
+              <th>Circularity (%)</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <p class="chart-title">Material Comparison Table</p>
+      </div>
+
+      <div class="chart-card"><canvas id="circularScore"></canvas><p class="chart-title">Circularity Score Meter</p></div>
+      <div class="chart-card"><div id="sankey" style="width: 100%; height: 400px;"></div><p class="chart-title">Sankey Diagram</p></div>
+      <div class="chart-card"><canvas id="supply"></canvas><p class="chart-title">Supply Loss Graph</p></div>
+      <div class="chart-card"><canvas id="sensitivity"></canvas><p class="chart-title">Sensitivity Simulation Chart</p></div>
+    </section>
+  </main>
+  <br><br>
+
+  </section>
+</main>
+
+
+    
+
+      
+  </main>
+
+  <script src="insights.js"></script>
+
+  <script>
+    
+  const nav = document.querySelector("nav");
+  const highlight = document.querySelector(".nav-highlight");
+  const links = document.querySelectorAll("nav ul li a");
+
+  links.forEach(link => {
+    link.addEventListener("mouseenter", () => {
+      const rect = link.getBoundingClientRect();
+      const navRect = nav.getBoundingClientRect();
+      const highlightWidth = parseInt(getComputedStyle(highlight).width);
+
+      highlight.style.left = rect.left - navRect.left + (rect.width - highlightWidth) / 2 + "px";
+      highlight.style.opacity = 1;
+    });
+  });
+
+  nav.addEventListener("mouseleave", () => {
+    highlight.style.opacity = 0; // fade out when leaving nav
+  });
+
+  // Active page highlight
+  const current = window.location.pathname;
+  links.forEach(link => {
+    if (link.getAttribute("href") === current) {
+      const rect = link.getBoundingClientRect();
+      const navRect = nav.getBoundingClientRect();
+      const highlightWidth = parseInt(getComputedStyle(highlight).width);
+
+      highlight.style.left = rect.left - navRect.left + (rect.width - highlightWidth) / 2 + "px";
+      highlight.style.opacity = 1;
+    }
+  });
+
+
+
+  </script>
+
+
+</body>
+</html>
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EcoForge Insights</title>
+  <link rel="stylesheet" href="insights.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="/final_logo_fs[1].png" alt="EcoForge Logo" />
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/calculator.html">Calculator</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="top-center">
+    <h1>Visual Insights</h1>
+    <button class="download-btn">Download Report</button>
+  </div>
+  <main>
+    <section class="charts">
+      <div class="chart-card"><canvas id="impactSummary"></canvas><p class="chart-title">Impact Summary Chart</p></div>
+      <div class="chart-card">
+        <table id="materialComparisonTable" class="material-table">
+          <thead>
+            <tr>
+              <th>Material</th>
+              <th>CO₂ (kg/kg)</th>
+              <th>Energy (MJ/kg)</th>
+              <th>Water (L/kg)</th>
+              <th>Circularity (%)</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <p class="chart-title">Material Comparison Table</p>
+      </div>
+      <div class="chart-card"><canvas id="circularScore"></canvas><p class="chart-title">Circularity Score Meter</p></div>
+      <div class="chart-card"><div id="sankey"></div><p class="chart-title">Sankey Diagram</p></div>
+      <div class="chart-card"><canvas id="supply"></canvas><p class="chart-title">Supply Loss Graph</p></div>
+      <div class="chart-card"><canvas id="sensitivity"></canvas><p class="chart-title">Sensitivity Simulation Chart</p></div>
+    </section>
+  </main>
+  <br><br>
+  <div class="faq-element"><img src="faq.png" alt="FAQ Element" class="center-element"></div>
+  <section class="faqs">
+    <h2>Suggested FAQs:</h2>
+  
+  </section>
+  <script src="insights.js"></script>
+</body>
+</html>

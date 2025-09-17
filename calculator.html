@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NavDhara | Calculator</title>
+  <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+  
+  <header>
+    <div class="logo">
+      <img src="/final_logo_fs_(1)[1].png" alt="Logo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/calculator.html">Calculator</a></li>
+        <li><a href="/about.html">About Us</a></li>
+        <li><a href="/faq.html">FAQs</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+      <span class="nav-highlight"></span>
+    </nav>
+  </header>
+
+  <main class="container">
+    
+    <div class="card left">
+      <h3>Enter Product/Material Details</h3>
+      <label for="material_type">Material type:</label>
+      <select id="material_type">
+        <option>Select Material</option>
+        <option>Aluminium</option>
+        <option>Copper</option>
+      </select>
+
+      <div class="input-grid">
+        <div><label for="scrap_kg">Scrap available:</label><input type="text" id="scrap_kg" placeholder="in kg"></div>
+        <div><label for="cost_usd_per_kg">Production cost:</label><input type="text" id="cost_usd_per_kg" placeholder="in usd/kg"></div>
+        <div><label for="co2_kg_per_kg">CO2:</label><input type="number" id="co2_kg_per_kg" placeholder="in (kg/kg)"></div>
+        <div><label for="transport_km">Transport Distance:</label><input type="number" id="transport_km" placeholder="in km"></div>
+      </div>
+
+     <label for="recycling_rate">Recycling rate (%): <span id="recycling_rate_val">50</span>%</label>
+     <input type="range" min="0" max="100" id="recycling_rate" value="50">
+
+      <div class="input-grid">
+        <div><label for="smelting_energy">Smelting energy:</label><input type="number" id="smelting_energy" placeholder="in (mj/kg)"></div>
+        <div><label for="mining_energy">Mining energy:</label><input type="number" id="mining_energy" placeholder="in (mj/kg)"></div>
+      </div>
+
+      <label for="water_usage_l_per_kg">Water usage:</label>
+      <input type="number" id="water_usage_l_per_kg" placeholder="in L/kg">
+
+      <button class="btn">Run Analysis</button>
+    </div>
+
+    <div class="card right">
+      <h3>AI Output Preview</h3>
+      <div class="preview-boxes">
+  <div class="output-box">
+    <div class="output-title">Impact Score</div>
+    <div class="box"></div>
+  </div>
+  <div class="output-box">
+    <div class="output-title">Impact Level</div>
+    <div class="box"></div>
+  </div>
+  <div class="output-box">
+    <div class="output-title">Top Factors</div>
+    <div class="box"></div>
+  </div>
+</div>
+
+
+      <h3>AI Recommendations Box</h3>
+      <div class="recommendation-box"></div>
+
+      <h3>Ask a follow-up question..</h3>
+      <div class="question-box">
+        <input type="text" placeholder="Type here...">
+        <button class="search-btn">🔍</button>
+      </div>
+
+      <a href="insights.html">
+         <button class="btn">View Full Insights</button>
+      </a>
+    </div>
+  </main>
+  <script src="calculator.js"></script>
+
+
+  <script>
+    
+  const nav = document.querySelector("nav");
+  const highlight = document.querySelector(".nav-highlight");
+  const links = document.querySelectorAll("nav ul li a");
+
+  links.forEach(link => {
+    link.addEventListener("mouseenter", () => {
+      const rect = link.getBoundingClientRect();
+      const navRect = nav.getBoundingClientRect();
+      const highlightWidth = parseInt(getComputedStyle(highlight).width);
+
+      highlight.style.left = rect.left - navRect.left + (rect.width - highlightWidth) / 2 + "px";
+      highlight.style.opacity = 1;
+    });
+  });
+
+  nav.addEventListener("mouseleave", () => {
+    highlight.style.opacity = 0; // fade out when leaving nav
+  });
+
+  // Active page highlight
+  const current = window.location.pathname;
+  links.forEach(link => {
+    if (link.getAttribute("href") === current) {
+      const rect = link.getBoundingClientRect();
+      const navRect = nav.getBoundingClientRect();
+      const highlightWidth = parseInt(getComputedStyle(highlight).width);
+
+      highlight.style.left = rect.left - navRect.left + (rect.width - highlightWidth) / 2 + "px";
+      highlight.style.opacity = 1;
+    }
+  });
+
+
+
+  </script>
+</body>
+</html>

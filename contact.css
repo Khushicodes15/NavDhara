@@ -1,0 +1,208 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  padding:50px;
+  color: #fff;
+  background: url("/faqbg.jpg") no-repeat center center/cover;
+  height: 100vh;
+  
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0px 40px;
+  
+}
+
+.logo {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo img {
+  margin-left:100px;
+  border-radius:50px;
+  height: 130px;
+  width: auto;
+  margin-right:300px;
+}
+
+
+nav {
+  position:relative;
+  flex: 1; 
+  max-width: 800px;
+  height:60px;
+  background: rgba(249, 251, 251, 0.525);
+  padding: 2px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 80px;
+}
+
+nav ul li a {
+  position:relative;
+  display:inline-block;
+  z-index: 2;
+
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.4rem;
+  transition: color 0.3s ease;
+  font-family:"Inter";
+  
+
+}
+.nav-highlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 130px;   /* Fixed width for the highlight */
+  background: rgba(62, 62, 62, 0.5); 
+  border-radius: 8px;
+  transition: all 0.4s ease;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0; /* start hidden */
+}
+
+
+
+
+
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 100px;
+  margin-top: 50px;
+}
+
+.contact-info {
+  flex: 1;
+}
+
+.contact-info h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.contact-info p {
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(7, 7, 7, 0.3);
+  padding: 12px 18px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+}
+.contact-item p {
+  margin: 0; /* remove default margin */
+}
+
+.contact-item img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.contact-item img[alt="Phone Icon"]{
+  width: 45px;
+  height: 45px;
+}
+
+.or-text {
+  text-align: center;
+  margin: 15px 0;
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.social-icons {
+  margin-left:210px;
+  display: flex;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.social-icons img {
+  width: 55px;
+  height: 50px;
+  transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
+}
+
+.contact-form {
+  flex: 1;
+  background: rgba(7, 7, 7, 0.3);
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.contact-form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.2);
+
+}
+
+.contact-form button {
+  display: block;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: rgb(130, 128, 128);
+
+}
+.social-icons img[alt="Twitter"] {
+  margin-top:-3.5px;
+  height: 60px;
+  width:60px;
+}

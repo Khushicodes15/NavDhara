@@ -1,0 +1,249 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  padding:50px;
+  color: #fff;
+  background: url("/aboutusbg.jpg") no-repeat center center/cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:center;
+
+  height: 100vh;
+  
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0px 40px;
+  
+}
+
+.logo {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo img {
+  margin-left:100px;
+  border-radius:50px;
+  height: 130px;
+  width: auto;
+  margin-right:300px;
+}
+
+
+nav {
+  position:relative;
+  flex: 1; 
+  max-width: 800px;
+  height:60px;
+  background: rgba(249, 251, 251, 0.525);
+  padding: 2px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 80px;
+}
+
+nav ul li a {
+  position:relative;
+  display:inline-block;
+  z-index: 2;
+
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.4rem;
+  transition: color 0.3s ease;
+  font-family:"Inter";
+  
+
+}
+.nav-highlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 130px;   
+  background: rgba(62, 62, 62, 0.5); 
+  border-radius: 8px;
+  transition: all 0.4s ease;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0; 
+}
+
+.about {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px;
+  gap: 50px;
+  margin-right:10px;
+  margin-left:100px;
+  align-items: flex-start;
+}
+
+.about-text {
+  flex: 1;
+  max-width: 600px;   /* limit width */
+}
+
+
+.about-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  color: #ddd;
+}
+
+.about-image img {
+  
+  width:350px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-top: 50px;
+ 
+ 
+}
+/* Capabilities Section */
+.capabilities {
+  padding: 60px 80px;
+}
+
+.cap-wrapper {
+  display: flex;
+  align-items: flex-start;        /* vertically centers title with boxes */
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.cap-grid {
+  display: grid;
+  margin-left:60px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  flex: 1;
+  max-width: 700px;      /* overall grid width */
+}
+
+.cap-box {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px 20px 20px; 
+ 
+  text-align: left;
+  max-width: 300px;
+  height:200px;
+  position: relative;      
+  overflow: visible;
+}
+
+.cap-box h3 {
+  font-size: 2rem;
+  color: white;
+  position: absolute;
+  top: -20px;   
+  left: -20px;   
+  margin: 0;
+}
+
+
+.cap-box h4 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.cap-title {
+  flex: 0.3;                 
+  text-align: left;
+  margin-left:70px;
+}
+
+.cap-title h2 {
+  font-size: 2rem;
+  line-height: 1.4;
+  white-space: nowrap;  
+  margin-top: 10px;      
+}
+.cap-title p{
+  font-size:20px;
+}
+
+
+.why-us {
+  padding: 60px 80px;
+  text-align: center;
+}
+
+.why-us h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin:0 auto;
+}
+
+.why-box {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  
+  position: relative;
+  text-align: left;
+
+  max-width: 300px;
+  height:220px;
+}
+
+.why-box h4 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.why-box span {
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+  font-size: 1.5rem;
+  color: white;
+  font-weight: bold;
+}
+
+
+
+
+.cap-box, .why-box {
+  position: relative; /* so the decoration can be positioned inside */
+}
+
+.metal-decor {
+  position: absolute;
+  width: 60px;   /* adjust size */
+  height: auto;
+  pointer-events: none; /* decorative only */
+}

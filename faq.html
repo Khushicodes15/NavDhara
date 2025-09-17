@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NavDhara | FAQs</title>
+  <link rel="stylesheet" href="faq.css">
+</head>
+<body>
+
+    <header>
+    <div class="logo">
+      <img src="/final_logo_fs_(1)[1].png" alt="EcoForge Logo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/calculator.html">Calculator</a></li>
+        <li><a href="/about.html">About Us</a></li>
+        <li><a href="/faq.html">FAQs</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+      <span class="nav-highlight"></span>
+    </nav>
+  </header>
+
+  <section class="faq-section">
+    <div class="faq-left">
+      <h2>ANY QUESTIONS?</h2>
+      <p class="sub">We got you.</p>
+      <p>
+        Our AI-powered platform makes sustainability simple. <br>
+        Here are some quick answers to help you understand what we do.
+      </p>
+    </div>
+
+    <div class="faq-right">
+      <div class="faq-item">
+        <button class="faq-question">How does this platform work? <span class="plus">+</span></button>
+        <div class="faq-answer">
+          Our tool uses AI to predict the environmental footprint of metals across their life cycle — from mining to recycling. It then provides insights and recommendations for greener, circular choices.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Who can use this tool? <span class="plus">+</span></button>
+        <div class="faq-answer">
+          It’s designed for startups, SMEs, industries, researchers, and policymakers who want to adopt sustainable practices.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Do I need prior expertise in LCA? <span class="plus">+</span></button>
+        <div class="faq-answer">
+          Not at all. The platform is intuitive and beginner-friendly, with automated suggestions even if you provide limited data.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">What makes this tool different from others? <span class="plus">+</span></button>
+        <div class="faq-answer">
+          Unlike traditional LCA software, our platform is AI-driven, lightweight, affordable, and focused on circularity in metals and mining.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">How does this project help the environment? <span class="plus">+</span></button>
+        <div class="faq-answer">
+          By enabling recycling, reducing waste, and improving resource efficiency, it drives industries toward a circular economy.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Is the platform scalable? <span class="plus">+</span></button>
+        <div class="faq-answer">
+          Yes, it’s built to scale globally while supporting local industries and governments.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <script>
+    
+  const nav = document.querySelector("nav");
+  const highlight = document.querySelector(".nav-highlight");
+  const links = document.querySelectorAll("nav ul li a");
+
+  links.forEach(link => {
+    link.addEventListener("mouseenter", () => {
+      const rect = link.getBoundingClientRect();
+      const navRect = nav.getBoundingClientRect();
+      const highlightWidth = parseInt(getComputedStyle(highlight).width);
+
+      highlight.style.left = rect.left - navRect.left + (rect.width - highlightWidth) / 2 + "px";
+      highlight.style.opacity = 1;
+    });
+  });
+
+  nav.addEventListener("mouseleave", () => {
+    highlight.style.opacity = 0; // fade out when leaving nav
+  });
+
+  // Active page highlight
+  const current = window.location.pathname;
+  links.forEach(link => {
+    if (link.getAttribute("href") === current) {
+      const rect = link.getBoundingClientRect();
+      const navRect = nav.getBoundingClientRect();
+      const highlightWidth = parseInt(getComputedStyle(highlight).width);
+
+      highlight.style.left = rect.left - navRect.left + (rect.width - highlightWidth) / 2 + "px";
+      highlight.style.opacity = 1;
+    }
+  });
+
+  const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item => {
+  const button = item.querySelector('.faq-question');
+  button.addEventListener('click', () => {
+    item.classList.toggle('active');
+  });
+});
+
+
+
+
+  </script>
+</body>
+</html>

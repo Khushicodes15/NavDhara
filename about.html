@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NavDhara | About Us</title>
+  <link rel="stylesheet" href="about.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="/final_logo_fs_(1)[1].png" alt="EcoForge Logo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/calculator.html">Calculator</a></li>
+        <li><a href="/about.html">About Us</a></li>
+        <li><a href="/faq.html">FAQs</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+      <span class="nav-highlight"></span>
+    </nav>
+  </header>
+  <br>
+<section class="about">
+    <div class="about-text">
+      <h1>About Us</h1>
+      <p>
+        Our platform reimagines Life Cycle Assessment (LCA) by leveraging Artificial Intelligence to deliver fast, reliable, 
+        and actionable sustainability insights. It goes beyond traditional analysis by predicting the environmental footprint 
+        of materials and processes — from carbon emissions to energy consumption and water usage. With intuitive visualization 
+        and AI-driven intelligence, we make complex assessments simple, empowering industries to make smarter, greener, and 
+        more circular decisions.
+      </p>
+      <p>
+        This initiative is proudly aligned with the vision of the Ministry of Mines, Government of India, supporting the nation’s 
+        drive toward sustainability and resource efficiency.
+      </p>
+    </div>
+    <div class="about-image">
+      <img src="/aboutus.png" alt="Metal Face Placeholder">
+    </div>
+  </section>
+
+  <section class="capabilities">
+  <div class="cap-wrapper">
+    <div class="cap-grid">
+  <div class="cap-box">
+    <h3>01</h3>
+    <h4>AI-Powered Predictions</h4>
+    <p>Instant, data-driven results for CO₂, energy, and water impact.</p>
+  </div>
+  <div class="cap-box">
+    <h3>02</h3>
+    <h4>User-Friendly Interface</h4>
+    <p>Designed for SMEs, policymakers, and researchers with no technical expertise required.</p>
+     <img src="/metal1.png" alt="metal decor" class="metal-decor" style="top:-20px; right:-20px;">
+  
+  </div>
+  <div class="cap-box">
+    <h3>03</h3>
+    <h4>Scenario Simulation</h4>
+    <p>Compare materials and processes to design sustainable alternatives.</p>
+  </div>
+  <div class="cap-box">
+    <h3>04</h3>
+    <h4>Compliance Ready</h4>
+    <p>Supports ESG reporting and Net Zero commitments.</p>
+  </div>
+</div>
+ <div class="cap-title">
+      <h2>Powerful Capabilities<br>at a Glance</h2>
+      <br>
+      <p>"Assess, Recycle, Renew"</p>
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- Why Us Section -->
+  <section class="why-us">
+    <h2>Why Us ?</h2>
+    <div class="why-grid">
+      <div class="why-box">
+        <img src="/metal2.png" alt="metal decor" class="metal-decor" style="top:-20px; left:-20px;">
+        <h4>Inclusive access</h4>
+        <p>Built for startups, SMEs, and governments, ensuring that organizations of any scale can adopt it with ease.</p>
+        <span>01</span>
+      </div>
+      <div class="why-box">
+        <h4>Smart and efficient</h4>
+        <p>A web-based, lightweight, and cost-effective platform that removes complexity while delivering powerful results.</p>
+        <span>02</span>
+      </div>
+      <div class="why-box">
+        <h4>Future-ready design</h4>
+        <p>Scalable for global use and adaptable to diverse industries, supporting long-term adoption.</p>
+        <span>03</span>
+      </div>
+      <div class="why-box">
+        <h4>Impact-driven</h4>
+        <p>Enables data-backed policymaking and accelerates green innovation for a truly circular and sustainable economy.</p>
+        <span>04</span>
+      </div>
+    </div>
+  </section>
+
+
+  <script>
+    
+  const nav = document.querySelector("nav");
+  const highlight = document.querySelector(".nav-highlight");
+  const links = document.querySelectorAll("nav ul li a");
+
+  links.forEach(link => {
+    link.addEventListener("mouseenter", () => {
+      const rect = link.getBoundingClientRect();
+      const navRect = nav.getBoundingClientRect();
+      const highlightWidth = parseInt(getComputedStyle(highlight).width);
+
+      highlight.style.left = rect.left - navRect.left + (rect.width - highlightWidth) / 2 + "px";
+      highlight.style.opacity = 1;
+    });
+  });
+
+  nav.addEventListener("mouseleave", () => {
+    highlight.style.opacity = 0; // fade out when leaving nav
+  });
+
+  // Active page highlight
+  const current = window.location.pathname;
+  links.forEach(link => {
+    if (link.getAttribute("href") === current) {
+      const rect = link.getBoundingClientRect();
+      const navRect = nav.getBoundingClientRect();
+      const highlightWidth = parseInt(getComputedStyle(highlight).width);
+
+      highlight.style.left = rect.left - navRect.left + (rect.width - highlightWidth) / 2 + "px";
+      highlight.style.opacity = 1;
+    }
+  });
+
+
+
+  </script>
+</body>
+</html>
