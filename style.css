@@ -161,3 +161,162 @@ nav ul li a {
   transform: translateY(-50%);
   
 }
+
+
+
+
+/* Media Queries */
+
+/* Laptops/Tablets (768px to 1199px) */
+@media screen and (max-width: 1199px) {
+  body {
+    padding: 30px;
+  }
+
+  header {
+    padding: 0px 20px;
+  }
+
+  .logo img {
+    margin-left: 50px;
+    margin-right: 100px;
+    height: 100px;
+  }
+
+  nav {
+    max-width: 600px;
+    height: 50px;
+    padding: 2px 20px;
+  }
+
+  nav ul {
+    gap: 40px;
+  }
+
+  nav ul li a {
+    font-size: 1.2rem;
+  }
+
+  .nav-highlight {
+    width: 100px;
+  }
+
+  .hero {
+    margin-top: 60px;
+    padding: 15px;
+  }
+
+  .hero-content {
+    max-width: 500px;
+  }
+
+  .hero-content h1 {
+    font-size: 32px;
+    width: 600px;
+  }
+
+  .hero-content p {
+    font-size: 24px;
+    width: 600px;
+  }
+
+  .start-btn {
+    padding: 10px 28px;
+    font-size: 1.4rem;
+  }
+
+  .arrow {
+    font-size: 40px;
+    padding: 10px;
+  }
+
+  .arrow.left {
+    left: 30px;
+  }
+
+  .arrow.right {
+    right: 30px;
+  }
+}
+
+/* Mobiles (below 768px) */
+@media screen and (max-width: 767px) {
+  body {
+    padding: 20px;
+  }
+
+  header {
+    flex-direction: column;
+    padding: 0px 10px;
+  }
+
+  .logo img {
+    margin-left: 0;
+    margin-right: 0;
+    height: 80px;
+  }
+
+  nav {
+    max-width: 100%;
+    height: auto;
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  nav ul li a {
+    font-size: 0.9rem;
+  }
+
+  .nav-highlight {
+    width: 70px;
+  }
+
+  .hero {
+    margin-top: 40px;
+    padding: 10px;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .hero-content h1 {
+    font-size: 24px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-content p {
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .start-btn {
+    padding: 8px 20px;
+    font-size: 1.2rem;
+  }
+
+  .arrow {
+    font-size: 30px;
+    padding: 8px;
+  }
+
+  .arrow.left {
+    left: 10px;
+  }
+
+  .arrow.right {
+    right: 10px;
+  }
+}
