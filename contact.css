@@ -441,3 +441,44 @@ nav ul li a {
     border-radius: 6px;
   }
 }
+
+
+/* Global protection */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Contact container fix */
+.contact-container {
+  width: 100%;
+  max-width: 1200px;      /* cap overall width */
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Prevent social icons from pushing layout */
+.social-icons {
+  margin-left: 0;         /* center handled with flex */
+  justify-content: center;
+  max-width: 100%;
+  flex-wrap: wrap;        /* ensures icons wrap instead of breaking layout */
+}
+
+/* Contact form safe width */
+.contact-form {
+  max-width: 100%;        /* no fixed overflow */
+  width: 100%;            /* take available space */
+  box-sizing: border-box;
+}
+
+/* Kill the scrollbar bug on mobile */
+@media screen and (max-width: 767px) {
+  body {
+    width: 100%;          /* instead of 100vw, fixes overflow */
+  }
+  .contact-form {
+    width: 100%;          /* allow form to shrink safely */
+  }
+}

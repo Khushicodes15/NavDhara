@@ -1,3 +1,9 @@
+/* Prevent horizontal scroll globally */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -230,7 +236,34 @@ nav ul li a {
 
 /* Media Queries */
 
-/* Laptops/Tablets (768px to 1199px) */
+/* Large laptops/desktops (1200px to 1399px) */
+@media screen and (max-width: 1399px) {
+  body {
+    padding: 40px;
+  }
+  
+  .logo img {
+    margin-left: 80px;
+    margin-right: 200px;
+    height: 120px;
+  }
+  
+  nav ul {
+    gap: 60px;
+  }
+  
+  .about {
+    padding: 80px;
+    margin-left: 80px;
+  }
+  
+  .cap-grid {
+    margin-left: 50px;
+    max-width: 600px;
+  }
+}
+
+/* Medium laptops (1000px to 1199px) */
 @media screen and (max-width: 1199px) {
   body {
     padding: 30px;
@@ -241,35 +274,37 @@ nav ul li a {
 
   header {
     padding: 0px 20px;
+    flex-wrap: wrap;
   }
 
   .logo img {
-    margin-left: 50px;
-    margin-right: 100px;
+    margin-left: 20px;
+    margin-right: 50px;
     height: 100px;
   }
 
   nav {
-    max-width: 600px;
+    max-width: 100%;
     height: 50px;
     padding: 2px 20px;
+    min-width: 300px;
   }
 
   nav ul {
-    gap: 40px;
+    gap: 30px;
   }
 
   nav ul li a {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   .nav-highlight {
-    width: 100px;
+    width: 90px;
   }
 
   .about {
-    padding: 50px;
-    margin-left: 50px;
+    padding: 40px;
+    margin-left: 20px;
     gap: 30px;
   }
 
@@ -286,27 +321,45 @@ nav ul li a {
   }
 
   .about-image img {
-    width: 250px;
+    width: 280px;
     margin-top: 30px;
   }
 
   .capabilities {
-    padding: 40px 50px;
+    padding: 40px 30px;
   }
 
   .cap-wrapper {
     gap: 30px;
+    flex-direction: column;
+  }
+
+  .cap-title {
+    order: -1;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .cap-title h2 {
+    font-size: 1.8rem;
+    white-space: normal;
+  }
+
+  .cap-title p {
+    font-size: 18px;
   }
 
   .cap-grid {
-    margin-left: 40px;
+    order: 0;
+    margin-left: 0;
     gap: 20px;
-    max-width: 500px;
+    max-width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
 
   .cap-box {
     padding: 30px 15px 15px;
-    max-width: 220px;
+    max-width: 100%;
     height: 180px;
     font-size: 0.95rem;
   }
@@ -321,20 +374,8 @@ nav ul li a {
     font-size: 1rem;
   }
 
-  .cap-title {
-    margin-left: 40px;
-  }
-
-  .cap-title h2 {
-    font-size: 1.8rem;
-  }
-
-  .cap-title p {
-    font-size: 18px;
-  }
-
   .why-us {
-    padding: 40px 50px;
+    padding: 40px 30px;
   }
 
   .why-us h2 {
@@ -344,12 +385,13 @@ nav ul li a {
 
   .why-grid {
     gap: 20px;
-    max-width: 800px;
+    max-width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 
   .why-box {
     padding: 15px;
-    max-width: 220px;
+    max-width: 100%;
     height: 200px;
     font-size: 0.95rem;
   }
@@ -369,6 +411,59 @@ nav ul li a {
   }
 }
 
+/* Small laptops/tablets (768px to 999px) */
+@media screen and (max-width: 999px) {
+  body {
+    padding: 25px;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .logo img {
+    margin-left: 0;
+    margin-right: 0;
+    height: 90px;
+  }
+
+  nav {
+    width: 100%;
+    max-width: none;
+  }
+
+  nav ul {
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav ul li a {
+    font-size: 1rem;
+  }
+
+  .about {
+    flex-direction: column;
+    padding: 30px 20px;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .about-image {
+    order: -1;
+  }
+
+  .about-image img {
+    width: 250px;
+    margin-top: 0;
+  }
+
+  .cap-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
 /* Mobiles (below 768px) */
 @media screen and (max-width: 767px) {
   body {
@@ -377,7 +472,6 @@ nav ul li a {
     background-size: cover;
     background-attachment: fixed;
     min-height: 100dvh;
-    width: 100vw;
   }
 
   header {
@@ -423,12 +517,12 @@ nav ul li a {
   }
 
   .about-image {
-    order: -1; /* Moves image above text */
+    order: -1;
   }
 
   .about-text {
     max-width: 100%;
-    order: 0; /* Ensures text stays below image */
+    order: 0;
   }
 
   .about-text h1 {
@@ -459,7 +553,7 @@ nav ul li a {
   }
 
   .cap-title {
-    order: -1; /* Moves cap-title above cap-grid */
+    order: -1;
     margin-left: 0;
     text-align: center;
   }
@@ -478,7 +572,7 @@ nav ul li a {
     margin-left: 0;
     gap: 15px;
     max-width: 100%;
-    order: 0; /* Ensures cap-grid stays below cap-title */
+    order: 0;
   }
 
   .cap-box {

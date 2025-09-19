@@ -334,3 +334,26 @@ nav ul li a {
     max-height: 180px;
   }
 }
+
+html, body {
+  overflow-x: hidden;
+}
+
+
+/* Stop FAQ section from overflowing */
+.faq-section {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 60px clamp(20px, 5vw, 80px); /* responsive horizontal padding */
+  gap: clamp(20px, 5vw, 80px);          /* responsive gap */
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Prevent mobile body from forcing scroll due to 100vw */
+@media screen and (max-width: 767px) {
+  body {
+    width: 100%;   /* Instead of 100vw which causes scroll */
+  }
+}

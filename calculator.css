@@ -12,13 +12,21 @@ body {
   background-size: cover;
   background-attachment: fixed;
   min-height: 100dvh;
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+.wrapper {
+  max-width: 1200px; /* Safe max width */
+  margin: 0 auto; /* Centers content */
+  padding: 0 15px; /* Responsive padding */
+  width: 100%; /* Ensures full width within viewport */
 }
 
 header {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 0px 40px;
+  padding: 0 40px; /* Restored original padding */
 }
 
 .logo {
@@ -29,20 +37,21 @@ header {
 }
 
 .logo img {
-  margin-left: 100px;
+  margin-left: 100px; /* Restored original margin */
+  margin-right: 300px; /* Restored original margin */
   border-radius: 50px;
   height: 130px;
   width: auto;
-  margin-right: 300px;
+  max-width: 100%; /* Prevents overflow */
 }
 
 nav {
   position: relative;
-  flex: 1; 
+  flex: 1;
   max-width: 800px;
   height: 60px;
   background: rgba(249, 251, 251, 0.525);
-  padding: 2px 40px;
+  padding: 2px 40px; /* Restored original padding */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,7 +60,7 @@ nav {
 nav ul {
   list-style: none;
   display: flex;
-  gap: 80px;
+  gap: 80px; /* Restored original gap */
 }
 
 nav ul li a {
@@ -71,23 +80,23 @@ nav ul li a {
   top: 0;
   left: 0;
   height: 100%;
-  width: 130px;   
-  background: rgba(62, 62, 62, 0.5); 
+  width: 130px;
+  background: rgba(62, 62, 62, 0.5);
   border-radius: 8px;
   transition: all 0.4s ease;
   z-index: 1;
   pointer-events: none;
-  opacity: 0; 
+  opacity: 0;
 }
 
 .container {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 40px;
-  padding: 40px;
-  flex-wrap: nowrap;
-  max-width: 1200px;
+  gap: 20px; /* Reduced from 40px */
+  padding: 20px; /* Reduced from 40px */
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+  max-width: 100%; /* Full width within wrapper */
   margin: 0 auto;
 }
 
@@ -96,7 +105,8 @@ nav ul li a {
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  width: 600px;
+  width: 100%; /* Full width within container */
+  max-width: 600px; /* Limits max width */
   color: #000;
 }
 
@@ -249,7 +259,7 @@ input[type="range"] {
   background: #fff;
   padding: 10px;
   border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   color: #000;
 }
 
@@ -260,20 +270,20 @@ a {
 
 /* Media Queries */
 
-/* Laptops/Tablets (768px to 1199px) */
-@media screen and (max-width: 1199px) {
+/* Specific for 14-inch laptops (1366px) */
+@media screen and (max-width: 1366px) {
   body {
     padding: 30px;
   }
 
   header {
-    padding: 0px 20px;
+    padding: 0 20px;
   }
 
   .logo img {
-    margin-left: 50px;
-    margin-right: 100px;
-    height: 100px;
+    margin-left: 50px; /* Adjusted for fit */
+    margin-right: 150px; /* Reduced to prevent overflow */
+    height: 100px; /* Reduced for smaller screens */
   }
 
   nav {
@@ -295,13 +305,12 @@ a {
   }
 
   .container {
-    flex-wrap: wrap;
-    padding: 20px;
-    gap: 20px;
+    gap: 15px;
+    padding: 15px;
   }
 
   .card {
-    width: 90%;
+    max-width: 90%; /* More flexible */
     padding: 15px;
   }
 
@@ -316,6 +325,10 @@ a {
   input,
   select {
     padding: 6px;
+  }
+
+  .input-grid {
+    grid-template-columns: 1fr; /* Single column on smaller screens */
   }
 
   .btn {
@@ -342,10 +355,91 @@ a {
   }
 }
 
+/* Tablets (768px to 1199px) */
+@media screen and (max-width: 1199px) {
+  body {
+    padding: 20px;
+  }
+
+  header {
+    padding: 0 15px;
+  }
+
+  .logo img {
+    margin-left: 20px;
+    margin-right: 30px;
+    height: 90px;
+  }
+
+  nav {
+    max-width: 500px;
+    height: 45px;
+    padding: 2px 15px;
+  }
+
+  nav ul {
+    gap: 30px;
+  }
+
+  nav ul li a {
+    font-size: 1.1rem;
+  }
+
+  .nav-highlight {
+    width: 90px;
+  }
+
+  .container {
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .card {
+    max-width: 85%;
+    padding: 12px;
+  }
+
+  .card h3 {
+    font-size: 1rem;
+  }
+
+  label {
+    font-size: 12px;
+  }
+
+  input,
+  select {
+    padding: 5px;
+  }
+
+  .btn {
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  .search-btn {
+    padding: 5px 8px;
+  }
+
+  .preview-boxes .box {
+    font-size: 1rem;
+    min-height: 70px;
+  }
+
+  .preview-boxes .box:nth-child(3) {
+    font-size: 0.8rem;
+  }
+
+  .recommendation-box {
+    min-height: 50px;
+    font-size: 0.8rem;
+  }
+}
+
 /* Mobiles (below 768px) */
 @media screen and (max-width: 767px) {
   body {
-    padding: 20px;
+    padding: 15px;
     background-size: cover;
     background-attachment: fixed;
     min-height: 100dvh;
@@ -353,13 +447,13 @@ a {
 
   header {
     flex-direction: column;
-    padding: 0px 10px;
+    padding: 0 10px;
   }
 
   .logo img {
     margin-left: 0;
     margin-right: 0;
-    height: 80px;
+    height: 70px;
   }
 
   nav {
@@ -370,7 +464,6 @@ a {
   }
 
   nav ul {
-    display: flex;
     flex-direction: row;
     gap: 15px;
     justify-content: center;
@@ -388,7 +481,7 @@ a {
   .container {
     flex-direction: column;
     padding: 10px;
-    gap: 15px;
+    gap: 10px;
   }
 
   .card {
@@ -397,17 +490,17 @@ a {
   }
 
   .card h3 {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   label {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   input,
   select {
-    padding: 5px;
-    margin-bottom: 8px;
+    padding: 4px;
+    margin-bottom: 6px;
   }
 
   .input-grid {
@@ -415,31 +508,31 @@ a {
   }
 
   .btn {
-    padding: 6px;
-    font-size: 12px;
+    padding: 5px;
+    font-size: 11px;
   }
 
   .search-btn {
-    padding: 5px 8px;
+    padding: 4px 6px;
   }
 
   .preview-boxes {
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
   }
 
   .preview-boxes .box {
-    font-size: 1rem;
-    min-height: 70px;
+    font-size: 0.9rem;
+    min-height: 60px;
   }
 
   .preview-boxes .box:nth-child(3) {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 
   .recommendation-box {
-    min-height: 50px;
-    font-size: 0.8rem;
-    padding: 8px;
+    min-height: 40px;
+    font-size: 0.7rem;
+    padding: 6px;
   }
 }

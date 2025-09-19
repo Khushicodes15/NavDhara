@@ -6,19 +6,18 @@
 
 body {
   font-family: Arial, sans-serif;
-  padding:50px;
+  padding: 50px;
   color: #fff;
   background: url("/d203c2e3-e849-44fb-83b0-fd7c84d5ef02.jpeg.jpg") no-repeat center center/cover;
   height: 100vh;
-  
+  overflow-x: hidden; /* Prevents horizontal scrolling */
 }
 
 header {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 0px 40px;
-  
+  padding: 0 40px; /* Restored original padding */
 }
 
 .logo {
@@ -29,95 +28,91 @@ header {
 }
 
 .logo img {
-  margin-left:100px;
-  border-radius:50px;
+  margin-left: 100px; /* Restored original margin */
+  margin-right: 300px; /* Restored original margin */
+  border-radius: 50px;
   height: 130px;
   width: auto;
-  margin-right:300px;
+  max-width: 100%; /* Prevents overflow */
 }
 
 nav {
-  position:relative;
-  flex: 1; 
+  position: relative;
+  flex: 1;
   max-width: 800px;
-  height:60px;
+  height: 60px;
   background: rgba(249, 251, 251, 0.525);
-  padding: 2px 40px;
+  padding: 2px 40px; /* Restored original padding */
   display: flex;
   align-items: center;
   justify-content: center;
-  
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  gap: 80px;
+  gap: 80px; /* Restored original gap */
 }
 
 nav ul li a {
-  position:relative;
-  display:inline-block;
+  position: relative;
+  display: inline-block;
   z-index: 2;
-
   color: #000;
   text-decoration: none;
   font-weight: 500;
   font-size: 1.4rem;
   transition: color 0.3s ease;
-  font-family:"Inter";
-  
-
+  font-family: "Inter";
 }
+
 .nav-highlight {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
-  width: 130px;   
-  background: rgba(62, 62, 62, 0.5); 
+  width: 130px;
+  background: rgba(62, 62, 62, 0.5);
   border-radius: 8px;
   transition: all 0.4s ease;
   z-index: 1;
   pointer-events: none;
-  opacity: 0; 
+  opacity: 0;
 }
 
-
 .hero {
-  padding:20px;
+  padding: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   margin-top: 80px;
   position: relative;
-  margin-left:5px;
 }
 
 .hero-content {
   max-width: 700px;
-  padding: 20px;
-  padding-left:0px;
-  position:relative;
-  
+  padding: 20px 0;
+  position: relative;
+  width: 100%;
 }
 
 .hero-content h1 {
-  font-family:"Literata";
+  font-family: "Literata";
   font-size: 40px;
   margin-bottom: 15px;
-  text-align:left;
-  width:800px;
-
+  text-align: left;
+  max-width: 100%; /* Replaces 800px */
+  word-wrap: break-word; /* Prevents overflow */
 }
 
 .hero-content p {
-  font-family:"Lohit Bengali";
+  font-family: "Lohit Bengali";
   font-size: 30px;
   margin-bottom: 25px;
-  text-align:left;
-  width:900px;
+  text-align: left;
+  max-width: 100%; /* Replaces 900px */
+  word-wrap: break-word; /* Prevents overflow */
 }
 
 .start-btn {
@@ -128,7 +123,7 @@ nav ul li a {
   color: #000;
   background: rgba(255, 255, 255, 0.6);
   text-decoration: none;
-  border-radius: 0; 
+  border-radius: 0;
   transition: background 0.3s ease;
 }
 
@@ -138,7 +133,7 @@ nav ul li a {
 
 .arrow {
   position: absolute;
-  top: 2;
+  top: 50%;
   transform: translateY(-50%);
   background: none;
   border: none;
@@ -146,41 +141,37 @@ nav ul li a {
   color: #fff;
   cursor: pointer;
   padding: 12px;
-  padding-top:0px;
 }
 
 .arrow.left {
-  left: 70px;
+  left: 70px; /* Restored original position */
 }
 
 .arrow.right {
-  right: 70px;
+  right: 70px; /* Restored original position */
 }
-.arrow:hover{
-  color:#888787;
+
+.arrow:hover {
+  color: #888787;
   transform: translateY(-50%);
-  
 }
-
-
-
 
 /* Media Queries */
 
-/* Laptops/Tablets (768px to 1199px) */
-@media screen and (max-width: 1199px) {
+/* Specific for 14-inch laptops (1366px) */
+@media screen and (max-width: 1366px) {
   body {
     padding: 30px;
   }
 
   header {
-    padding: 0px 20px;
+    padding: 0 20px;
   }
 
   .logo img {
-    margin-left: 50px;
-    margin-right: 100px;
-    height: 100px;
+    margin-left: 50px; /* Adjusted for fit */
+    margin-right: 150px; /* Reduced to prevent overflow */
+    height: 100px; /* Reduced for smaller screens */
   }
 
   nav {
@@ -207,17 +198,15 @@ nav ul li a {
   }
 
   .hero-content {
-    max-width: 500px;
+    max-width: 90%;
   }
 
   .hero-content h1 {
     font-size: 32px;
-    width: 600px;
   }
 
   .hero-content p {
     font-size: 24px;
-    width: 600px;
   }
 
   .start-btn {
@@ -239,21 +228,91 @@ nav ul li a {
   }
 }
 
-/* Mobiles (below 768px) */
-@media screen and (max-width: 767px) {
+/* Tablets (768px to 1199px) */
+@media screen and (max-width: 1199px) {
   body {
     padding: 20px;
   }
 
   header {
+    padding: 0 15px;
+  }
+
+  .logo img {
+    margin-left: 20px;
+    margin-right: 30px;
+    height: 90px;
+  }
+
+  nav {
+    max-width: 500px;
+    height: 45px;
+    padding: 2px 15px;
+  }
+
+  nav ul {
+    gap: 30px;
+  }
+
+  nav ul li a {
+    font-size: 1.1rem;
+  }
+
+  .nav-highlight {
+    width: 90px;
+  }
+
+  .hero {
+    margin-top: 50px;
+    padding: 10px;
+  }
+
+  .hero-content {
+    max-width: 80%;
+  }
+
+  .hero-content h1 {
+    font-size: 28px;
+  }
+
+  .hero-content p {
+    font-size: 20px;
+  }
+
+  .start-btn {
+    padding: 8px 24px;
+    font-size: 1.3rem;
+  }
+
+  .arrow {
+    font-size: 35px;
+    padding: 8px;
+  }
+
+  .arrow.left {
+    left: 15px;
+  }
+
+  .arrow.right {
+    right: 15px;
+  }
+}
+
+/* Mobiles (below 768px) */
+@media screen and (max-width: 767px) {
+  body {
+    padding: 15px;
+  }
+
+  header {
     flex-direction: column;
-    padding: 0px 10px;
+    padding: 0 10px;
   }
 
   .logo img {
     margin-left: 0;
     margin-right: 0;
-    height: 80px;
+    height: 70px;
   }
 
   nav {
@@ -264,10 +323,8 @@ nav ul li a {
   }
 
   nav ul {
-    display: flex;
     flex-direction: row;
     gap: 15px;
-    align-items: center;
     justify-content: center;
     flex-wrap: wrap;
   }
@@ -281,42 +338,40 @@ nav ul li a {
   }
 
   .hero {
-    margin-top: 40px;
-    padding: 10px;
+    margin-top: 30px;
+    padding: 5px;
   }
 
   .hero-content {
     max-width: 100%;
-    padding: 10px;
+    padding: 0;
   }
 
   .hero-content h1 {
-    font-size: 24px;
-    width: 100%;
+    font-size: 20px;
     text-align: center;
   }
 
   .hero-content p {
-    font-size: 18px;
-    width: 100%;
+    font-size: 16px;
     text-align: center;
   }
 
   .start-btn {
-    padding: 8px 20px;
-    font-size: 1.2rem;
+    padding: 6px 18px;
+    font-size: 1.1rem;
   }
 
   .arrow {
-    font-size: 30px;
-    padding: 8px;
+    font-size: 25px;
+    padding: 5px;
   }
 
   .arrow.left {
-    left: 10px;
+    left: 5px;
   }
 
   .arrow.right {
-    right: 10px;
+    right: 5px;
   }
 }
