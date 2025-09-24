@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NavDhara | Log In</title>
+  <link rel="stylesheet" href="design.css">
+  <script src="login.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <div class="left-panel">
+      <div class="logo-block">
+        <img src="/final_logo_fs_(1)[1].png" alt="Logo" class="logo-img">
+        <div class="logo-text">
+          <h2>NavDhara - Access, Recycle, Renew</h2>
+          
+          <p>(AI-Powered Circular Economy Platform)</p>
+        </div>
+      </div>
+      <img src="/image.png" alt="Decorative Image" class="bg-img">
+    </div>
+    <div class="right-panel">
+      <h2>Log in</h2>
+      <p>Don’t have an account? <a href="index.html">Create one</a></p>
+
+      <form id="loginForm" action="home.html" method="get">
+        <input type="email" placeholder="Enter your email" required>
+
+        <div class="password-field">
+          <input type="password" id="loginPassword" placeholder="Enter your password" required>
+          <span class="toggle-password" onclick="togglePassword('loginPassword')">👁</span>
+        </div>
+
+        <button type="submit">Log in</button>
+      </form>
+
+      <div class="divider">or continue with</div>
+      <div class="social-buttons">
+        <button><img src="/search[1].png" alt="Google"> Google</button>
+        <button><img src="/apple (1)[1].png" alt="Apple"> Apple</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

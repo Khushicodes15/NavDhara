@@ -1,184 +1,93 @@
-// document.addEventListener("DOMContentLoaded", function() {
-//   const runBtn = document.querySelector(".left .btn");
-//   const boxes = document.querySelectorAll(".preview-boxes .box");
-//   const recommendBox = document.querySelector(".recommendation-box");
-
-//   // Update recycling rate slider display
-//   const slider = document.getElementById("recycling_rate");
-//   const output = document.getElementById("recycling_rate_val");
-//   if (slider && output) {
-//     output.innerText = slider.value;
-//     slider.addEventListener("input", function() {
-//       output.innerText = this.value;
-//     });
-//   }
-
-//   // Helper function: Validate a number string strictly
-//   function isValidNumber(value) {
-//     return /^-?\d+(\.\d+)?$/.test(value.trim());
-//   }
-
-//   runBtn.addEventListener("click", async () => {
-//     // Collect raw string input values
-//     const materialType = document.getElementById("material_type").value;
-//     const scrapRaw = document.getElementById("scrap_kg").value;
-//     const costRaw = document.getElementById("cost_usd_per_kg").value;
-//     const co2Raw = document.getElementById("co2_kg_per_kg").value;
-//     const transportRaw = document.getElementById("transport_km").value;
-//     const recyclingRaw = document.getElementById("recycling_rate").value;
-//     const smeltingRaw = document.getElementById("smelting_energy").value;
-//     const miningRaw = document.getElementById("mining_energy").value;
-//     const waterRaw = document.getElementById("water_usage_l_per_kg").value;
-
-//     // Validate materialType
-//     if (materialType === "Select Material") {
-//       alert("Please select a valid Material Type.");
-//       return;
-//     }
-
-//     // Validate numeric inputs strictly
-//     const numberFields = {
-//       "Scrap available": scrapRaw,
-//       "Production cost": costRaw,
-//       "CO2": co2Raw,
-//       "Transport Distance": transportRaw,
-//       "Recycling rate": recyclingRaw,
-//       "Smelting energy": smeltingRaw,
-//       "Mining energy": miningRaw,
-//       "Water usage": waterRaw
-//     };
-
-//     for (const [name, val] of Object.entries(numberFields)) {
-//       if (!isValidNumber(val)) {
-//         alert(`Please enter a valid number for ${name}.`);
-//         return;
-//       }
-//     }
-
-//     // Prepare data with keys exactly matching backend expectations
-//     const data = {
-//       material: materialType,
-//       scrap_available: parseFloat(scrapRaw),
-//       production_cost_usd_per_kg: parseFloat(costRaw),
-//       co2_kg_per_kg: parseFloat(co2Raw),
-//       transport_km: parseFloat(transportRaw),
-//       recycling_rate: parseFloat(recyclingRaw) / 100, // convert percentage to decimal
-//       smelting_energy_mj_per_kg: parseFloat(smeltingRaw),
-//       mining_energy_mj_per_kg: parseFloat(miningRaw),
-//       water_usage_l_per_kg: parseFloat(waterRaw)
-//     };
-
-//     // Show loading state in UI
-//     boxes.forEach(box => (box.innerText = "Loading..."));
-//     recommendBox.innerText = "Loading...";
-
-//     try {
-//       const response = await fetch("https://lca-backend-1i20.onrender.com/predict", {
-//         method: "POST",
-//         headers: { "Content-Type": "application/json" },
-//         body: JSON.stringify(data)
-//       });
-
-//       console.log("Response status:", response.status);
-
-//       const text = await response.text();
-//       console.log("Response text:", text);
-
-//       let result;
-//       try {
-//         result = JSON.parse(text);
-//       } catch (e) {
-//         console.error("Failed to parse JSON:", e);
-//         throw new Error("Server returned invalid JSON");
-//       }
-
-//       if (!response.ok) {
-//         throw new Error(result.error || `Error ${response.status}`);
-//       }
-
-//       // Display the results
-//       boxes[0].innerText =
-//         result.impact_score !== undefined ? result.impact_score.toFixed(2) : "N/A";
-//       boxes[1].innerText = result.impact_level || "N/A";
-//       boxes[2].innerText = result.top_factors
-//         ? Object.entries(result.top_factors).map(([k, v]) => `${k}: ${v}%`).join(", ")
-//         : "N/A";
-
-//       recommendBox.innerText = result.recommendations?.length
-//         ? result.recommendations.join("\n")
-//         : "No recommendations";
-
-//     } catch (error) {
-//       console.error("Fetch or API error:", error);
-//       recommendBox.innerText = `Error fetching data! ${error.message || ""}`;
-//       boxes.forEach(box => (box.innerText = "N/A"));
-//     }
-//   });
-// });
-
-
-
-document.addEventListener("DOMContentLoaded", function() {
-  const runBtn = document.querySelector(".left .btn");
-  const boxes = document.querySelectorAll(".preview-boxes .box");
+document.addEventListener("DOMContentLoaded", () => {
+  // --- UI elements ---
+  const runBtn = document.querySelector(".card.left .btn");
+  const viewInsightsBtn = document.querySelector(".card.right a .btn"); 
+  const boxes = document.querySelectorAll(".preview-boxes .box"); 
   const recommendBox = document.querySelector(".recommendation-box");
+  const questionInput = document.querySelector(".question-box input");
+  const questionBtn = document.querySelector(".question-box .search-btn");
 
-  const viewInsightsBtn = document.querySelector(".right .btn"); // ✅ Select Insights button
+  // Slider display
+  const slider = document.getElementById("recycling_rate");
+  const sliderVal = document.getElementById("recycling_rate_val");
+  if (slider && sliderVal) {
+    sliderVal.innerText = slider.value;
+    slider.addEventListener("input", () => sliderVal.innerText = slider.value);
+  }
 
-  // Initially disable "View Full Insights"
+  // Defaults and state
+  const API_BASE = "https://lca-backend-1i20.onrender.com";
+  let lastResult = null; 
   if (viewInsightsBtn) viewInsightsBtn.disabled = true;
 
-  // Update recycling rate slider display
-  const slider = document.getElementById("recycling_rate");
-  const output = document.getElementById("recycling_rate_val");
-  if (slider && output) {
-    output.innerText = slider.value;
-    slider.addEventListener("input", function() {
-      output.innerText = this.value;
-    });
-  }
-
-  // Helper function: Validate a number string strictly
+  // Helpers
   function isValidNumber(value) {
-    return /^-?\d+(\.\d+)?$/.test(value.trim());
+    if (value === null || value === undefined) return false;
+    return /^-?\d+(\.\d+)?$/.test(String(value).trim());
   }
 
-  // Helper function: Adjust font size to fit text inside box without overflow
-  function fitTextToBox(box) {
-    const MAX_FONT_SIZE = 20; // max font size in px
-    const MIN_FONT_SIZE = 8;  // min font size in px
-    let fontSize = MAX_FONT_SIZE;
-
-    box.style.fontSize = fontSize + "px";
-    box.style.whiteSpace = "nowrap";
-
-    while (box.scrollWidth > box.clientWidth && fontSize > MIN_FONT_SIZE) {
-      fontSize -= 1;
-      box.style.fontSize = fontSize + "px";
+  function formatTopFactors(tf) {
+    try {
+      if (!tf) return "N/A";
+      if (Array.isArray(tf)) return tf.join(", ");
+      if (typeof tf === "object") {
+        return Object.entries(tf).map(([k, v]) => `${k}: ${v}%`).join(", ");
+      }
+      return String(tf);
+    } catch (e) {
+      return "N/A";
     }
-
-    box.style.whiteSpace = "normal"; // allow wrapping if needed after shrinking
   }
 
-  runBtn.addEventListener("click", async () => {
-    // Collect raw string input values
-    const materialType = document.getElementById("material_type").value;
-    const scrapRaw = document.getElementById("scrap_kg").value;
-    const costRaw = document.getElementById("cost_usd_per_kg").value;
-    const co2Raw = document.getElementById("co2_kg_per_kg").value;
-    const transportRaw = document.getElementById("transport_km").value;
-    const recyclingRaw = document.getElementById("recycling_rate").value;
-    const smeltingRaw = document.getElementById("smelting_energy").value;
-    const miningRaw = document.getElementById("mining_energy").value;
-    const waterRaw = document.getElementById("water_usage_l_per_kg").value;
+  function formatRecommendations(rec) {
+    if (!rec) return ["No recommendations."];
+    if (Array.isArray(rec)) return rec;
+    return [String(rec)];
+  }
 
-    // Validate materialType
-    if (materialType === "Select Material") {
+  function setLoading(isLoading, forFollowUp = false) {
+    if (isLoading) {
+      if (runBtn) runBtn.disabled = true;
+      if (questionBtn) questionBtn.disabled = true;
+      if (!forFollowUp) {
+        if (viewInsightsBtn) viewInsightsBtn.disabled = true;
+        boxes.forEach(b => b.innerText = "Loading...");
+        recommendBox.innerText = "Loading...";
+      }
+    } else {
+      if (runBtn) runBtn.disabled = false;
+      if (questionBtn) questionBtn.disabled = false;
+    }
+  }
+
+  function collectInputs() {
+    return {
+      materialType: document.getElementById("material_type")?.value || "",
+      scrapRaw: document.getElementById("scrap_kg")?.value ?? "",
+      costRaw: document.getElementById("cost_usd_per_kg")?.value ?? "",
+      co2Raw: document.getElementById("co2_kg_per_kg")?.value ?? "",
+      transportRaw: document.getElementById("transport_km")?.value ?? "",
+      recyclingRaw: document.getElementById("recycling_rate")?.value ?? "",
+      smeltingRaw: document.getElementById("smelting_energy")?.value ?? "",
+      miningRaw: document.getElementById("mining_energy")?.value ?? "",
+      waterRaw: document.getElementById("water_usage_l_per_kg")?.value ?? ""
+    };
+  }
+
+  // --- RUN ANALYSIS ---
+  async function runAnalysis() {
+    // Clear old conversation and last results
+    localStorage.removeItem("lcaConversationId");
+    lastResult = null;
+
+    const { materialType, scrapRaw, costRaw, co2Raw,
+            transportRaw, recyclingRaw, smeltingRaw, miningRaw, waterRaw } = collectInputs();
+
+    if (!materialType || materialType === "Select Material") {
       alert("Please select a valid Material Type.");
       return;
     }
 
-    // Validate numeric inputs strictly
     const numberFields = {
       "Scrap available": scrapRaw,
       "Production cost": costRaw,
@@ -191,85 +100,159 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     for (const [name, val] of Object.entries(numberFields)) {
-      if (!isValidNumber(val)) {
+      if (!isValidNumber(String(val))) {
         alert(`Please enter a valid number for ${name}.`);
         return;
       }
     }
 
-    // Prepare data with keys exactly matching backend expectations
-    const data = {
+    const inputs = {
       material: materialType,
       scrap_available: parseFloat(scrapRaw),
       production_cost_usd_per_kg: parseFloat(costRaw),
       co2_kg_per_kg: parseFloat(co2Raw),
       transport_km: parseFloat(transportRaw),
-      recycling_rate: parseFloat(recyclingRaw) / 100, // convert percentage to decimal
+      recycling_rate: parseFloat(recyclingRaw) / 100,
       smelting_energy_mj_per_kg: parseFloat(smeltingRaw),
       mining_energy_mj_per_kg: parseFloat(miningRaw),
       water_usage_l_per_kg: parseFloat(waterRaw)
     };
 
-    // Show loading state in UI
-    boxes.forEach(box => (box.innerText = "Loading..."));
-    recommendBox.innerText = "Loading...";
+    const role = localStorage.getItem("userRole") || "sustainability manager";
+
+    setLoading(true);
 
     try {
-      const response = await fetch("https://lca-backend-1i20.onrender.com/predict", {
+      const res = await fetch(`${API_BASE}/predict`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
+        body: JSON.stringify({ role, inputs })
       });
 
-      console.log("Response status:", response.status);
+      const json = await res.json().catch(async () => {
+        const txt = await res.text();
+        throw new Error("Invalid JSON from server: " + txt);
+      });
 
-      const text = await response.text();
-      console.log("Response text:", text);
+      if (!res.ok) throw new Error(json.error || `Server returned ${res.status}`);
 
-      let result;
-      try {
-        result = JSON.parse(text);
-      } catch (e) {
-        console.error("Failed to parse JSON:", e);
-        throw new Error("Server returned invalid JSON");
+      lastResult = json;
+
+      // Save results and conversation ID
+      localStorage.setItem("lcaResults", JSON.stringify({ inputs, output: json }));
+      if (json.conversation_id) {
+        lastResult.conversation_id = json.conversation_id;
+        localStorage.setItem("lcaConversationId", String(json.conversation_id));
       }
 
-      if (!response.ok) {
-        throw new Error(result.error || `Error ${response.status}`);
-      }
-
-      // Store inputs and output in localStorage for insights.html
-      localStorage.setItem("lcaResults", JSON.stringify({ inputs: data, output: result }));
-    
-      boxes[0].innerText =
-        result.impact_score !== undefined ? result.impact_score.toFixed(2) : "N/A";
-      boxes[0].style.fontSize = "1.6rem";
-
-      boxes[1].innerText = result.impact_level || "N/A";
-      boxes[1].style.fontSize = "1.4rem";
-
-      boxes[2].innerText = result.top_factors
-        ? Object.entries(result.top_factors).map(([k, v]) => `${k}: ${v}%`).join(", ")
+      boxes[0].innerText = (json.impact_score !== undefined && json.impact_score !== null)
+        ? Number(json.impact_score).toFixed(2)
         : "N/A";
-      boxes[2].style.fontSize = "1.1rem";
+      boxes[1].innerText = json.impact_level || "N/A";
+      boxes[2].innerText = formatTopFactors(json.top_factors);
 
-      recommendBox.innerText = result.recommendations?.length
-        ? result.recommendations.join("\n")
-        : "No recommendations";
+      recommendBox.innerHTML = "";
+      formatRecommendations(json.recommendations).forEach((rec) => {
+        const recEl = document.createElement("div");
+        recEl.textContent = `• ${rec}`;
+        recommendBox.appendChild(recEl);
+      });
 
-      if (viewInsightsBtn) {
-        viewInsightsBtn.disabled = false;
-        viewInsightsBtn.addEventListener("click", () => {
-          window.location.href = "insights.html";  // Fixed to match your HTML file
-        });
-      }
+      if (viewInsightsBtn) viewInsightsBtn.disabled = false;
 
-    } catch (error) {
-      console.error("Fetch or API error:", error);
-      recommendBox.innerText = `Error fetching data! ${error.message || ""}`;
-      boxes.forEach(box => (box.innerText = "N/A"));
+    } catch (err) {
+      console.error("Analysis error:", err);
+      recommendBox.innerText = `Error: ${err.message || err}`;
+      boxes.forEach(b => b.innerText = "N/A");
+    } finally {
+      setLoading(false);
     }
-  });
+  }
+
+  // --- FOLLOW-UP QUESTION ---
+  async function sendFollowUp() {
+    const question = questionInput?.value?.trim();
+    if (!question) {
+      alert("Please enter a question to send.");
+      return;
+    }
+
+    const conversation_id = (lastResult && lastResult.conversation_id)
+      || localStorage.getItem("lcaConversationId")
+      || (JSON.parse(localStorage.getItem("lcaResults") || "{}").output || {}).conversation_id;
+
+    if (!conversation_id) {
+      alert("Please run a new analysis first.");
+      return;
+    }
+
+    const role = localStorage.getItem("userRole") || "sustainability manager";
+
+    setLoading(true, true);
+
+    // Show user question in chat
+    const qEl = document.createElement("div");
+    qEl.innerHTML = `<strong>You:</strong> ${question}`;
+    recommendBox.appendChild(qEl);
+
+    const aEl = document.createElement("div");
+    aEl.innerHTML = "<em>AI is thinking...</em>";
+    recommendBox.appendChild(aEl);
+
+    try {
+      const res = await fetch(`${API_BASE}/followup`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ conversation_id, question, role })
+      });
+
+      const json = await res.json().catch(async () => {
+        const txt = await res.text();
+        throw new Error("Invalid JSON from server: " + txt);
+      });
+
+      if (!res.ok) throw new Error(json.error || `Server returned ${res.status}`);
+
+      const answer = json.answer || "No answer returned.";
+      aEl.innerHTML = `<strong>AI:</strong> ${answer}`;
+
+      // Save follow-ups in localStorage
+      try {
+        const store = JSON.parse(localStorage.getItem("lcaResults") || "{}");
+        if (!store.output) store.output = {};
+        if (!store.output.followups) store.output.followups = [];
+        store.output.followups.push({ question, answer, conversation_id });
+        localStorage.setItem("lcaResults", JSON.stringify(store));
+      } catch (e) {}
+
+      questionInput.value = "";
+      recommendBox.scrollTop = recommendBox.scrollHeight;
+
+    } catch (err) {
+      console.error("Follow-up error:", err);
+      aEl.innerHTML = `<strong>AI Error:</strong> ${err.message}`;
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  // --- Wire UI events ---
+  if (runBtn) runBtn.addEventListener("click", runAnalysis);
+  if (questionBtn) questionBtn.addEventListener("click", sendFollowUp);
+  if (questionInput) {
+    questionInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        sendFollowUp();
+      }
+    });
+  }
+
+  // Enable insights if results already exist
+  try {
+    const stored = JSON.parse(localStorage.getItem("lcaResults") || "null");
+    if (stored && stored.output && stored.output.conversation_id && viewInsightsBtn) {
+      viewInsightsBtn.disabled = false;
+    }
+  } catch (e) {}
 });
-
-

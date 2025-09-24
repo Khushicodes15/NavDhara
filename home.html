@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NavDhara | Contact</title>
-  <link rel="stylesheet" href="contact.css">
+  <title>NavDhara | Home</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
@@ -13,7 +13,7 @@
     </div>
     <nav>
       <ul>
-        <li><a href="/home.html">Home</a></li>
+        <li><a href="/home.html" class="active">Home</a></li>
         <li><a href="/calculator.html">Calculator</a></li>
         <li><a href="/about.html">About Us</a></li>
         <li><a href="/faq.html">FAQs</a></li>
@@ -23,55 +23,18 @@
     </nav>
   </header>
 
-  <main class="contact-container">
-  <div class="contact-info">
-    <h2>Get In Touch</h2>
-    <p>We’d love to hear from you. Reach out for queries, collaborations, or feedback.</p>
-
-    <div class="contact-item">
-      <img src="/mail logo.png" alt="Email Icon">
-      <p>ecoforgex1@gmail.com</p>
+  <section class="hero">
+    <button class="arrow left">&#10094;</button>
+    <div class="hero-content">
+      <h1>AI-Driven Life Cycle Assessment Tool</h1>
+      <p>Compare virgin vs recycled metal pathways. Make sustainable choices.</p>
+      <br><br>
+      <a href="/calculator.html" class="start-btn">Start Now</a>
     </div>
+    <button class="arrow right">&#10095;</button>
+  </section>
 
-    <div class="contact-item">
-      <img src="/call logo.png" alt="Phone Icon" id="101">
-      <p>1234567890</p>
-    </div>
-
-    <div class="contact-item">
-      <img src="/map logo.png" alt="Location Icon">
-      <p>University of Engineering and Management New Town AAIII, Kolkata - 700135</p>
-    </div>
-
-    <br>
-
-    <div class="social-icons">
-      <a href="#"><img src="/insta logo.png" alt="Instagram"></a>
-      <a href="#"><img src="/whp logo.png" alt="WhatsApp"></a>
-      <a href="#"><img src="/twitter logo.png" alt="Twitter" id="102"></a>
-    </div>
-  </div>
-
-  <div class="contact-form">
-    <form action="#" method="POST">
-      <label for="name">Full name:</label>
-      <input type="text" id="name" name="name" required>
-
-      <label for="email">Email address:</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="phone">Phone number:</label>
-      <input type="tel" id="phone" name="phone">
-
-      <label for="message">Your message:</label>
-      <textarea id="message" name="message" rows="6" required></textarea>
-
-      <button type="submit">Send message</button>
-    </form>
-  </div>
-</main>
-
-<script>
+  <script>
     
   const nav = document.querySelector("nav");
   const highlight = document.querySelector(".nav-highlight");
@@ -110,3 +73,5 @@
   </script>
 </body>
 </html>
+
+

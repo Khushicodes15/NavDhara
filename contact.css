@@ -314,7 +314,7 @@ nav ul li a {
 /* Mobiles (below 768px) */
 @media screen and (max-width: 767px) {
   body {
-    padding: 10px;
+    padding: 15x;
     background: url("/faqbg.jpg") no-repeat center center/cover;
     background-size: cover;
     background-attachment: fixed;
@@ -324,25 +324,23 @@ nav ul li a {
 
   header {
     flex-direction: column;
-    padding: 0 5px;
+    padding: 0 10px;
   }
 
   .logo img {
     margin-left: 0;
     margin-right: 0;
-    height: 60px;
-    width: auto;
+    height: 70px;
   }
 
   nav {
     max-width: 100%;
     height: auto;
-    padding: 5px;
-    margin-top: 5px;
+    padding: 10px;
+    margin-top: 10px;
   }
 
   nav ul {
-    display: flex;
     flex-direction: row;
     gap: 10px;
     justify-content: center;
@@ -350,18 +348,18 @@ nav ul li a {
   }
 
   nav ul li a {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 
   .nav-highlight {
-    width: 60px;
+    width: 70px;
   }
 
   .contact-container {
     flex-direction: column;
     gap: 15px;
-    margin-top: 15px;
-    padding: 0 5px;
+    margin-top: 20px;
+    padding: 0 10px;
     max-width: 100%;
   }
 

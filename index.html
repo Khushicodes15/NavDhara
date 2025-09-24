@@ -3,75 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NavDhara | Home</title>
-  <link rel="stylesheet" href="style.css">
+  <title>NavDhara | Create Account</title>
+  <link rel="stylesheet" href="design.css">
+  <script src="login.js" defer></script>
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <img src="/final_logo_fs_(1)[1].png" alt="EcoForge Logo">
-    </div>
-    <nav>
-      <ul>
-        <li><a href="/index.html" class="active">Home</a></li>
-        <li><a href="/calculator.html">Calculator</a></li>
-        <li><a href="/about.html">About Us</a></li>
-        <li><a href="/faq.html">FAQs</a></li>
-        <li><a href="/contact.html">Contact</a></li>
-      </ul>
-      <span class="nav-highlight"></span>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <button class="arrow left">&#10094;</button>
-    <div class="hero-content">
-      <h1>AI-Driven Life Cycle Assessment Tool</h1>
-      <p>Compare virgin vs recycled metal pathways. Make sustainable choices.</p>
-      <br><br>
-      <a href="/calculator.html" class="start-btn">Start Now</a>
-    </div>
-    <button class="arrow right">&#10095;</button>
-  </section>
-
-  <script>
+  <div class="container">
     
-  const nav = document.querySelector("nav");
-  const highlight = document.querySelector(".nav-highlight");
-  const links = document.querySelectorAll("nav ul li a");
+    <div class="left-panel">
+      <div class="logo-block">
+        <img src="/final_logo_fs_(1)[1].png" alt="Logo" class="logo-img">
+        <div class="logo-text">
+          <h2>NavDhara - Access, Recycle, Renew</h2>
+    
+          <p>(AI-Powered Circular Economy Platform)</p>
+        </div>
+      </div>
+      <img src="/image.png" alt="Decorative Image" class="bg-img">
+    </div>
 
-  links.forEach(link => {
-    link.addEventListener("mouseenter", () => {
-      const rect = link.getBoundingClientRect();
-      const navRect = nav.getBoundingClientRect();
-      const highlightWidth = parseInt(getComputedStyle(highlight).width);
+   
+    <div class="right-panel">
+      <h2>Create an Account</h2>
+      <p>Already have an account? <a href="login.html">log in</a></p>
 
-      highlight.style.left = rect.left - navRect.left + (rect.width - highlightWidth) / 2 + "px";
-      highlight.style.opacity = 1;
-    });
-  });
+      <form id="signupForm" action="home.html" method="get">
+        <div class="name-fields">
+          <input type="text" placeholder="First name" required>
+          <input type="text" placeholder="Last name" required>
+        </div>
+        <input type="email" placeholder="Email" required>
 
-  nav.addEventListener("mouseleave", () => {
-    highlight.style.opacity = 0; // fade out when leaving nav
-  });
+        <label>Create a password</label>
+        <div class="password-field">
+          <input type="password" id="signupPassword" placeholder="Enter your password" required>
+          <span class="toggle-password" onclick="togglePassword('signupPassword')">👁</span>
+        </div>
 
-  // Active page highlight
-  const current = window.location.pathname;
-  links.forEach(link => {
-    if (link.getAttribute("href") === current) {
-      const rect = link.getBoundingClientRect();
-      const navRect = nav.getBoundingClientRect();
-      const highlightWidth = parseInt(getComputedStyle(highlight).width);
+        <label>Confirm your password <span id="pwdError" class="error"></span></label>
+        <div class="password-field">
+          <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+          <span class="toggle-password" onclick="togglePassword('confirmPassword')">👁</span>
+        </div>
 
-      highlight.style.left = rect.left - navRect.left + (rect.width - highlightWidth) / 2 + "px";
-      highlight.style.opacity = 1;
-    }
-  });
+        <select id="role" required>
+          <option value="">Select role</option>
+          <option value="industry">Industry</option>
+          <option value="researcher">Researcher/Student</option>
+          <option value="policymaker">Policymaker</option>
 
+        </select>
 
+        <button type="submit">Create account</button>
+      </form>
 
-  </script>
+      <div class="divider">or register with</div>
+      <div class="social-buttons">
+        <button><img src="/search[1].png" alt="Google"> Google</button>
+        <button><img src="/apple (1)[1].png" alt="Apple"> Apple</button>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
-
-

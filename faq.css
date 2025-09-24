@@ -257,7 +257,7 @@ nav ul li a {
     width: 100vw;
   }
 
-  header {
+   header {
     flex-direction: column;
     padding: 0 10px;
   }
@@ -265,18 +265,17 @@ nav ul li a {
   .logo img {
     margin-left: 0;
     margin-right: 0;
-    height: 80px;
+    height: 70px;
   }
 
   nav {
     max-width: 100%;
     height: auto;
-    padding: 8px;
-    margin-top: 8px;
+    padding: 10px;
+    margin-top: 10px;
   }
 
   nav ul {
-    display: flex;
     flex-direction: row;
     gap: 15px;
     justify-content: center;
@@ -351,9 +350,4 @@ html, body {
   overflow-x: hidden;
 }
 
-/* Prevent mobile body from forcing scroll due to 100vw */
-@media screen and (max-width: 767px) {
-  body {
-    width: 100%;   /* Instead of 100vw which causes scroll */
-  }
-}
+

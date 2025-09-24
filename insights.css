@@ -17,12 +17,11 @@ body {
   background: url("/final[1].png") no-repeat center center/cover;
   min-height: 100vh;
 }
-
 header {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 0px 40px;
+  padding: 0 40px; /* Restored original padding */
 }
 
 .logo {
@@ -33,11 +32,12 @@ header {
 }
 
 .logo img {
-  margin-left: 100px;
+  margin-left: 100px; /* Restored original margin */
+  margin-right: 300px; /* Restored original margin */
   border-radius: 50px;
   height: 130px;
   width: auto;
-  margin-right: 300px;
+  max-width: 100%; /* Prevents overflow */
 }
 
 nav {
@@ -46,7 +46,7 @@ nav {
   max-width: 800px;
   height: 60px;
   background: rgba(249, 251, 251, 0.525);
-  padding: 2px 40px;
+  padding: 2px 40px; /* Restored original padding */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -55,7 +55,7 @@ nav {
 nav ul {
   list-style: none;
   display: flex;
-  gap: 80px;
+  gap: 80px; /* Restored original gap */
 }
 
 nav ul li a {

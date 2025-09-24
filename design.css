@@ -1,0 +1,244 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  background: #2f2f2f;
+  color: #fff;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+.left-panel {
+  flex: 1;
+  position: relative;
+  background: rgba(20, 20, 20, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px;
+}
+
+.logo-block {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(60, 60, 60, 0.2);
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.logo-img {
+  width: 70px;
+  height: auto;
+}
+
+.logo-text h2 {
+  font-size: 1.2rem;
+}
+
+.logo-text p {
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+.bg-img {
+  margin: 0 auto;
+  margin-top: -40px;
+  display: block;
+  width: 100%;
+  height: auto;         
+  max-width: 100%;      
+  object-fit: cover;  
+}
+
+
+.right-panel {
+  flex: 1;
+  padding: 60px;
+  background: #2f2f2f;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.right-panel h2 {
+  margin-bottom: 10px;
+}
+
+.right-panel p {
+  margin-bottom: 20px;
+}
+
+a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.name-fields {
+  display: flex;
+  gap: 10px;
+}
+
+input, select, button {
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+input, select {
+  width: 100%;
+}
+
+button {
+  background: #fff;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ddd;
+}
+
+.password-field {
+  position: relative;
+}
+
+.password-field input {
+  width: 100%;
+  padding-right: 40px;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  font-size: 0.8rem;
+  margin-left: 5px;
+}
+
+.divider {
+  text-align: center;
+  margin: 20px 0;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+.social-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.social-buttons button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #444;
+  color: #fff;
+}
+
+.social-buttons img {
+  width: 20px;
+  height: 20px;
+}
+
+
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+  }
+  .left-panel, .right-panel {
+    flex: none;
+    width: 100%;
+    height: auto;
+  }
+  .right-panel {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo-block {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .bg-img {
+    width: 100%;
+    margin-top: -20px;
+  }
+  form {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .right-panel {
+    padding: 20px;
+  }
+  input, select, button {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}
+
+
+
+input.invalid,
+input.invalid:focus {
+  border: 2px solid rgba(231, 76, 60, 0.95);
+  box-shadow: 0 0 0 6px rgba(231, 76, 60, 0.07);
+}
+
+
+.error {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin-left: 6px;
+}
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;      
+  overflow: hidden;  
+}
+.bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.left-panel, .right-panel {
+  max-width: 50vw;   
+  overflow: hidden;
+}

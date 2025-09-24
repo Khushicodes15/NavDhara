@@ -203,12 +203,16 @@ input[type="range"] {
 }
 
 .search-btn {
-  padding: 8px 12px;
+  height: 40px; 
+  padding: 0 15px;
   border: none;
   background: #000;
   color: #fff;
   border-radius: 6px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .output-box {
@@ -281,9 +285,9 @@ a {
   }
 
   .logo img {
-    margin-left: 50px; /* Adjusted for fit */
-    margin-right: 150px; /* Reduced to prevent overflow */
-    height: 100px; /* Reduced for smaller screens */
+    margin-left: 50px; 
+    margin-right: 150px; 
+    height: 100px;
   }
 
   nav {
@@ -310,7 +314,7 @@ a {
   }
 
   .card {
-    max-width: 90%; /* More flexible */
+    max-width: 90%;
     padding: 15px;
   }
 
@@ -328,8 +332,7 @@ a {
   }
 
   .input-grid {
-    grid-template-columns: 1fr; /* Single column on smaller screens */
-  }
+    grid-template-columns: 1fr; 
 
   .btn {
     padding: 8px;
@@ -535,4 +538,94 @@ a {
     font-size: 0.7rem;
     padding: 6px;
   }
+}
+
+
+.preview-boxes {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  justify-content: space-between;
+  align-items: stretch; 
+  height:150px;
+}
+
+
+.preview-boxes .box{
+  flex: 1;
+  background: #f9f9f9;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #000;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.recommendation-box {
+  background: #f9f9f9;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #000;
+  font-size: 1rem;
+
+  /* 👇 force it to stay fixed */
+  height: 114px;
+  min-height: 114px;
+  max-height: 114px;
+
+  /* 👇 ensure scrolling happens */
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  /* 👇 kill flex stretching */
+  flex: none;
+  display: block;
+  box-sizing: border-box;
+  white-space: pre-wrap;   /* keep line breaks */
+  word-wrap: break-word;   /* break long words */
+}
+
+
+.question-box {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 10px;
+  align-items: stretch;
+}
+
+
+.question-box input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  height: 40px;
+}
+}
+
+.recommendation-box {
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px;
+  margin-top: 8px;
+
+  color: #000;
+  font-size: 1rem;
+  white-space: pre-wrap;  /* preserve line breaks */
+  word-wrap: break-word;
+
+  height: 140px;           /* fixed height */
+  min-height: 140px;
+  max-height: 140px;
+  overflow-y: auto;        /* vertical scroll */
+  overflow-x: hidden;
+
+  display: block;          /* change from flex to block */
 }
