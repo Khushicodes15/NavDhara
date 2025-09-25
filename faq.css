@@ -163,35 +163,84 @@ nav ul li a {
   transform: rotate(45deg);
 }
 
-/* Media Queries */
+/* Media Queries for faq.css - Header/Nav Consistency Only */
 
-/* Laptops/Tablets (768px to 1199px) */
-@media screen and (max-width: 1199px) {
+/* Large Laptops (1400px to 1599px) */
+@media screen and (max-width: 1599px) and (min-width: 1400px) {
+  header {
+    padding: 0 35px;
+  }
+
+  .logo img {
+    margin-left: 85px;
+    margin-right: 260px;
+    height: 125px;
+  }
+
+  nav ul {
+    gap: 75px;
+  }
+}
+
+/* Standard Laptops (1200px to 1399px) */
+@media screen and (max-width: 1399px) and (min-width: 1200px) {
   body {
-    padding: 30px;
-    background-size: cover;
-    background-attachment: fixed;
-    min-height: 100dvh;
+    padding: 40px;
   }
 
   header {
-    padding: 0 20px;
+    padding: 0 30px;
+  }
+
+  .logo img {
+    margin-left: 70px;
+    margin-right: 220px;
+    height: 120px;
+  }
+
+  nav {
+    max-width: 700px;
+    height: 55px;
+    padding: 2px 35px;
+  }
+
+  nav ul {
+    gap: 60px;
+  }
+
+  nav ul li a {
+    font-size: 1.3rem;
+  }
+
+  .nav-highlight {
+    width: 120px;
+  }
+}
+
+/* Medium Laptops (1000px to 1199px) */
+@media screen and (max-width: 1199px) and (min-width: 1000px) {
+  body {
+    padding: 35px;
+  }
+
+  header {
+    padding: 0 25px;
   }
 
   .logo img {
     margin-left: 50px;
-    margin-right: 100px;
-    height: 100px;
+    margin-right: 180px;
+    height: 110px;
   }
 
   nav {
     max-width: 600px;
     height: 50px;
-    padding: 2px 20px;
+    padding: 2px 25px;
   }
 
   nav ul {
-    gap: 40px;
+    gap: 50px;
   }
 
   nav ul li a {
@@ -199,66 +248,145 @@ nav ul li a {
   }
 
   .nav-highlight {
-    width: 100px;
+    width: 105px;
+  }
+
+  .faq-section {
+    padding: 50px 40px;
+    gap: 60px;
+  }
+}
+
+/* Small Laptops (768px to 999px) */
+@media screen and (max-width: 999px) and (min-width: 768px) {
+  body {
+    padding: 30px;
+  }
+
+  header {
+    padding: 0 20px;
+  }
+
+  .logo img {
+    margin-left: 25px;
+    margin-right: 120px;
+    height: 100px;
+  }
+
+  nav {
+    max-width: 500px;
+    height: 45px;
+    padding: 2px 20px;
+  }
+
+  nav ul {
+    gap: 35px;
+  }
+
+  nav ul li a {
+    font-size: 1.1rem;
+  }
+
+  .nav-highlight {
+    width: 90px;
   }
 
   .faq-section {
     flex-direction: column;
-    padding: 40px 20px;
-    gap: 40px;
+    padding: 40px 25px;
+    gap: 35px;
   }
 
   .faq-left {
     padding-left: 0;
-    margin-top: 20px;
-  }
-
-  .faq-left h2 {
-    font-size: 28px;
-  }
-
-  .faq-left .sub {
-    font-size: 20px;
-    margin: 5px 0 15px;
-  }
-
-  .faq-left p {
-    font-size: 16px;
-    line-height: 1.6;
-  }
-
-  .faq-right {
-    gap: 10px;
-  }
-
-  .faq-question {
-    padding: 12px 15px;
-    font-size: 14px;
-  }
-
-  .faq-question .plus {
-    font-size: 18px;
-  }
-
-  .faq-item.active .faq-answer {
-    padding: 12px 15px;
-    max-height: 200px;
+    margin-top: 15px;
   }
 }
 
-/* Mobiles (below 768px) */
-@media screen and (max-width: 767px) {
+/* Tablets (568px to 767px) */
+@media screen and (max-width: 767px) and (min-width: 568px) {
   body {
-    padding: 15px;
-    background: url("faqbg.jpg") no-repeat center center/cover;
-    background-size: cover;
-    background-attachment: fixed;
-    min-height: 100dvh;
-    width: 100vw;
+    padding: 25px;
   }
 
-   header {
+  header {
     flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 0 15px;
+  }
+
+  .logo img {
+    margin-left: 0;
+    margin-right: 0;
+    height: 85px;
+  }
+
+  nav {
+    max-width: 100%;
+    width: 400px;
+    height: auto;
+    padding: 8px 20px;
+    margin-top: 0;
+  }
+
+  nav ul {
+    gap: 25px;
+    justify-content: center;
+  }
+
+  nav ul li a {
+    font-size: 1rem;
+  }
+
+  .nav-highlight {
+    width: 80px;
+  }
+
+  .faq-section {
+    flex-direction: column;
+    padding: 30px 20px;
+    gap: 30px;
+  }
+
+  .faq-left {
+    padding-left: 0;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .faq-left h2 {
+    font-size: 30px;
+  }
+
+  .faq-left .sub {
+    font-size: 22px;
+  }
+
+  .faq-left p {
+    font-size: 18px;
+  }
+
+  .faq-question {
+    padding: 13px 16px;
+    font-size: 15px;
+  }
+
+  .faq-item.active .faq-answer {
+    padding: 13px 16px;
+  }
+}
+
+/* Mobile Phones (below 568px) */
+@media screen and (max-width: 567px) {
+  body {
+    padding: 15px;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
     padding: 0 10px;
   }
 
@@ -270,9 +398,10 @@ nav ul li a {
 
   nav {
     max-width: 100%;
+    width: 100%;
     height: auto;
-    padding: 10px;
-    margin-top: 10px;
+    padding: 8px 10px;
+    margin-top: 0;
   }
 
   nav ul {
@@ -294,11 +423,17 @@ nav ul li a {
     flex-direction: column;
     padding: 20px 10px;
     gap: 20px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    overflow-x: hidden;
   }
 
   .faq-left {
     padding-left: 0;
     margin-top: 10px;
+    text-align: center;
   }
 
   .faq-left h2 {
@@ -334,20 +469,69 @@ nav ul li a {
   }
 }
 
-html, body {
-  overflow-x: hidden;
+header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 40px; /* Restored original padding */
 }
 
-
-/* Stop FAQ section from overflowing */
-.faq-section {
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 60px clamp(20px, 5vw, 80px); /* responsive horizontal padding */
-  gap: clamp(20px, 5vw, 80px);          /* responsive gap */
-  box-sizing: border-box;
-  overflow-x: hidden;
+.logo {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.logo img {
+  margin-left: 100px; /* Restored original margin */
+  margin-right: 300px; /* Restored original margin */
+  border-radius: 50px;
+  height: 130px;
+  width: auto;
+  max-width: 100%; /* Prevents overflow */
+}
 
+nav {
+  position: relative;
+  flex: 1;
+  max-width: 800px;
+  height: 60px;
+  background: rgba(249, 251, 251, 0.525);
+  padding: 2px 40px; /* Restored original padding */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 80px; /* Restored original gap */
+}
+
+nav ul li a {
+  position: relative;
+  display: inline-block;
+  z-index: 2;
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.4rem;
+  transition: color 0.3s ease;
+  font-family: "Inter";
+}
+
+.nav-highlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 130px;
+  background: rgba(62, 62, 62, 0.5);
+  border-radius: 8px;
+  transition: all 0.4s ease;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+}

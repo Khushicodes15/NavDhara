@@ -202,230 +202,10 @@ nav ul li a {
 
 /* Media Queries */
 
-/* Large laptops (1300px to 1599px) */
-@media screen and (max-width: 1599px) and (min-width: 1300px) {
-  body {
-    padding: 45px;
-  }
-  
-  .logo img {
-    margin-left: 80px;
-    margin-right: 250px;
-    height: 125px;
-  }
-  
-  nav ul {
-    gap: 70px;
-  }
-}
-
-/* Medium laptops (1000px to 1299px) */
-@media screen and (max-width: 1299px) and (min-width: 1000px) {
-  body {
-    padding: 35px;
-  }
-
-  header {
-    padding: 0 30px;
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-
-  .logo img {
-    margin-left: 40px;
-    margin-right: 120px;
-    height: 110px;
-  }
-
-  nav {
-    max-width: 100%;
-    height: 55px;
-    padding: 2px 30px;
-    min-width: 350px;
-  }
-
-  nav ul {
-    gap: 50px;
-  }
-
-  nav ul li a {
-    font-size: 1.3rem;
-  }
-
-  .nav-highlight {
-    width: 110px;
-  }
-
-  .top-center {
-    margin: 35px 0 18px 0;
-  }
-
-  .center-element {
-    width: 135px;
-  }
-
-  .top-center h1 {
-    font-size: 2.3rem;
-  }
-
-  .download-btn {
-    padding: 9px 18px;
-    font-size: 0.95rem;
-  }
-
-  .charts {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 18px;
-    margin: 25px auto;
-    max-width: 95%;
-    padding: 0 10px;
-  }
-
-  .chart-card {
-    min-height: 330px;
-    height: 330px;
-    padding: 14px;
-  }
-
-  .chart-card canvas, .chart-card #sankey {
-    width: 100%;
-    max-width: 240px;
-    height: auto;
-    max-height: 190px;
-    min-height: 160px;
-    object-fit: contain;
-  }
-
-  #sankey {
-    width: 100%;
-    max-width: 240px;
-    height: auto;
-    max-height: 190px;
-    min-height: 160px;
-    object-fit: contain;
-  }
-
-  .chart-card p {
-    font-size: 1.05rem;
-    margin-top: 10px;
-    padding: 0 6px;
-    line-height: 1.4;
-  }
-
-  .material-table {
-    font-size: 0.95rem;
-  }
-
-  .material-table th,
-  .material-table td {
-    padding: 7px;
-  }
-}
-
-/* Small laptops (768px to 999px) */
-@media screen and (max-width: 999px) and (min-width: 768px) {
-  body {
-    padding: 25px;
-  }
-
-  header {
-    flex-direction: column;
-    padding: 0 20px;
-    gap: 12px;
-  }
-
-  .logo img {
-    margin-left: 0;
-    margin-right: 0;
-    height: 95px;
-  }
-
-  nav {
-    max-width: 100%;
-    height: auto;
-    padding: 10px 20px;
-    min-height: 50px;
-  }
-
-  nav ul {
-    gap: 30px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  nav ul li a {
-    font-size: 1.1rem;
-  }
-
-  .nav-highlight {
-    width: 85px;
-  }
-
-  .top-center {
-    margin: 25px 0 15px 0;
-  }
-
-  .center-element {
-    width: 110px;
-  }
-
-  .top-center h1 {
-    font-size: 1.9rem;
-  }
-
-  .download-btn {
-    padding: 8px 15px;
-    font-size: 0.9rem;
-  }
-
-  .charts {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 16px;
-    margin: 20px auto;
-    max-width: 100%;
-    padding: 0 5px;
-  }
-
-  .chart-card {
-    min-height: 310px;
-    height: auto;
-    padding: 13px;
-  }
-
-  .chart-card canvas, .chart-card #sankey {
-    width: 100%;
-    max-width: 260px;
-    height: auto;
-    max-height: 180px;
-    min-height: 150px;
-    object-fit: contain;
-  }
-
-  #sankey {
-    width: 100%;
-    max-width: 260px;
-    height: auto;
-    max-height: 180px;
-    min-height: 150px;
-    object-fit: contain;
-  }
-
-  .chart-card p {
-    font-size: 1rem;
-    margin-top: 12px;
-    padding: 0 8px;
-    line-height: 1.4;
-  }
-}
-
-/* Original tablet breakpoint (max-width: 1199px) - keeping for compatibility */
-@media screen and (max-width: 1199px) {
+/* Specific for 14-inch laptops (1366px) */
+@media screen and (max-width: 1366px) {
   body {
     padding: 30px;
-    background: url("/final[1].png") no-repeat center center/cover;
-    background-size: cover;
-    background-attachment: fixed;
-    min-height: 100dvh;
   }
 
   header {
@@ -434,7 +214,7 @@ nav ul li a {
 
   .logo img {
     margin-left: 50px;
-    margin-right: 100px;
+    margin-right: 150px;
     height: 100px;
   }
 
@@ -456,36 +236,31 @@ nav ul li a {
     width: 100px;
   }
 
+  /* Retain your page-specific styling */
   .top-center {
     margin: 30px 0 15px 0;
   }
-
   .center-element {
     width: 120px;
   }
-
   .top-center h1 {
     font-size: 2rem;
   }
-
   .download-btn {
     padding: 8px 16px;
     font-size: 0.9rem;
   }
-
   .charts {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 15px;
     margin: 20px auto;
     max-width: 90%;
   }
-
   .chart-card {
     min-height: 320px;
     height: auto;
     padding: 12px;
   }
-
   .chart-card canvas, .chart-card #sankey {
     width: 100%;
     max-width: 220px;
@@ -494,45 +269,96 @@ nav ul li a {
     min-height: 140px;
     object-fit: contain;
   }
-
-  #sankey {
-    width: 100%;
-    max-width: 220px;
-    height: auto;
-    max-height: 180px;
-    min-height: 140px;
-    object-fit: contain;
-  }
-
   .chart-card p {
     font-size: 1rem;
     margin-top: 12px;
-    padding: 0 8px;
-    line-height: 1.4;
-    max-width: 90%;
-    overflow: visible;
-    text-overflow: clip;
-    white-space: normal;
   }
-
   .material-table {
     font-size: 0.9rem;
   }
+}
 
-  .material-table th,
-  .material-table td {
-    padding: 6px;
+/* Tablets (768px to 1199px) */
+@media screen and (max-width: 1199px) {
+  body {
+    padding: 20px;
+  }
+
+  header {
+    padding: 0 15px;
+  }
+
+  .logo img {
+    margin-left: 20px;
+    margin-right: 30px;
+    height: 90px;
+  }
+
+  nav {
+    max-width: 500px;
+    height: 45px;
+    padding: 2px 15px;
+  }
+
+  nav ul {
+    gap: 30px;
+  }
+
+  nav ul li a {
+    font-size: 1.1rem;
+  }
+
+  .nav-highlight {
+    width: 90px;
+  }
+
+  /* Retain your page-specific styling */
+  .top-center {
+    margin: 25px 0 12px 0;
+  }
+  .center-element {
+    width: 110px;
+  }
+  .top-center h1 {
+    font-size: 1.9rem;
+  }
+  .download-btn {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+  .charts {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin: 20px auto;
+    max-width: 100%;
+    padding: 0 5px;
+  }
+  .chart-card {
+    min-height: 310px;
+    height: auto;
+    padding: 13px;
+  }
+  .chart-card canvas, .chart-card #sankey {
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+    max-height: 180px;
+    min-height: 150px;
+    object-fit: contain;
+  }
+  .chart-card p {
+    font-size: 1rem;
+    margin-top: 12px;
+  }
+  .material-table {
+    font-size: 0.9rem;
   }
 }
 
-/* Mobile (below 768px) */
+/* Mobiles (below 768px) */
 @media screen and (max-width: 767px) {
   body {
     padding: 15px;
-    background: url("/final[1].png") no-repeat center center/cover;
-    background-size: cover;
-    background-attachment: fixed;
-    min-height: 100dvh;
   }
 
   header {
@@ -543,18 +369,17 @@ nav ul li a {
   .logo img {
     margin-left: 0;
     margin-right: 0;
-    height: 80px;
+    height: 70px;
   }
 
   nav {
     max-width: 100%;
     height: auto;
-    padding: 8px;
-    margin-top: 8px;
+    padding: 10px;
+    margin-top: 10px;
   }
 
   nav ul {
-    display: flex;
     flex-direction: row;
     gap: 15px;
     justify-content: center;
@@ -569,36 +394,31 @@ nav ul li a {
     width: 70px;
   }
 
+  /* Retain your page-specific styling */
   .top-center {
     margin: 20px 0 10px 0;
   }
-
   .center-element {
     width: 100px;
   }
-
   .top-center h1 {
     font-size: 1.8rem;
   }
-
   .download-btn {
     padding: 6px 12px;
     font-size: 0.8rem;
   }
-
   .charts {
     grid-template-columns: 1fr;
     gap: 10px;
     margin: 15px auto;
     max-width: 100%;
   }
-
   .chart-card {
     min-height: 360px;
     height: auto;
     padding: 15px;
   }
-
   .chart-card canvas, .chart-card #sankey {
     width: 100%;
     max-width: 90%;
@@ -607,33 +427,11 @@ nav ul li a {
     min-height: 140px;
     object-fit: contain;
   }
-
-  #sankey {
-    width: 100%;
-    max-width: 90%;
-    height: auto;
-    max-height: 200px;
-    min-height: 140px;
-    object-fit: contain;
-  }
-
   .chart-card p {
     font-size: 0.9rem;
     margin-top: 15px;
-    line-height: 1.4;
-    max-width: 90%;
-    overflow: visible;
-    text-overflow: clip;
-    white-space: normal;
-    padding: 0 10px;
   }
-
   .material-table {
     font-size: 0.8rem;
-  }
-
-  .material-table th,
-  .material-table td {
-    padding: 5px;
   }
 }
