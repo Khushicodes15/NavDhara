@@ -231,19 +231,22 @@ input[type="range"] {
 
 .preview-boxes .box {
   width: 100%;
-  min-height: 100px;
+  height: 100%;
   background: #f9f9f9;
   border-radius: 8px;
   border: 1px solid #ccc;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   font-size: 1.3rem;
   font-weight: 600;
   padding: 8px;
-  text-align: center;
+  text-align: left;
   word-wrap: break-word;
   color: #000;
+  flex: 1;
+  overflow-y: auto;
+  flex-direction: column;
 }
 
 .preview-boxes .box:nth-child(3) {
@@ -272,9 +275,74 @@ a {
   color: inherit;
 }
 
+.preview-boxes {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  justify-content: space-between;
+  align-items: stretch; 
+  height: 150px;
+}
+
+.preview-boxes .box {
+  flex: 1;
+  background: #f9f9f9;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #000;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+  min-height: 0; /* Allows flex items to shrink */
+}
+
+
+
+
+.question-box {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 10px;
+  align-items: stretch;
+}
+
+
+.question-box input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  height: 40px;
+}
+
+.recommendation-box {
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px;
+  margin-top: 8px;
+
+  color: #000;
+  font-size: 1rem;
+  white-space: pre-wrap;  /* preserve line breaks */
+  word-wrap: break-word;
+
+  height: 140px;           /* fixed height */
+  min-height: 140px;
+  max-height: 140px;
+  overflow-y: auto;        /* vertical scroll */
+  overflow-x: hidden;
+
+  display: block;          /* change from flex to block */
+}
+
 /* Media Queries */
 
-/* Specific for 14-inch laptops (1366px) */
+/* Specific for 14-inch laptops (1366px) including 1024x1366 */
 @media screen and (max-width: 1366px) {
   body {
     padding: 30px;
@@ -285,8 +353,8 @@ a {
   }
 
   .logo img {
-    margin-left: 50px; 
-    margin-right: 150px; 
+    margin-left: 50px;
+    margin-right: 150px;
     height: 100px;
   }
 
@@ -309,56 +377,92 @@ a {
   }
 
   .container {
-    gap: 15px;
     padding: 15px;
+    gap: 15px;
   }
 
   .card {
-    max-width: 90%;
+    max-width: 480px;
     padding: 15px;
   }
 
   .card h3 {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+    margin-bottom: 12px;
   }
 
-  label {
-    font-size: 13px;
-  }
-
-  input,
-  select {
-    padding: 6px;
-  }
-
-  .input-grid {
-    grid-template-columns: 1fr; 
-
-  .btn {
-    padding: 8px;
-    font-size: 13px;
-  }
-
-  .search-btn {
-    padding: 6px 10px;
+  .preview-boxes {
+    height: 110px;
+    align-items: stretch;
   }
 
   .preview-boxes .box {
     font-size: 1.1rem;
-    min-height: 80px;
-  }
-
-  .preview-boxes .box:nth-child(3) {
-    font-size: 0.9rem;
+    padding: 6px;
+    height: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 
   .recommendation-box {
-    min-height: 60px;
+    height: 100px;
+    min-height: 100px;
+    max-height: 100px;
     font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  label {
+    font-size: 13px;
+    margin: 4px 0;
+  }
+
+  input, select {
+    padding: 6px;
+    margin-bottom: 8px;
+  }
+
+  .input-grid {
+    gap: 8px;
   }
 }
 
-/* Tablets (768px to 1199px) */
+/* Large laptops/desktops (1200px to 1399px) */
+@media screen and (max-width: 1399px) {
+  body {
+    padding: 40px;
+  }
+
+  header {
+    padding: 0 20px;
+  }
+
+  .logo img {
+    margin-left: 50px;
+    margin-right: 150px;
+    height: 100px;
+  }
+
+  nav {
+    max-width: 600px;
+    height: 50px;
+    padding: 2px 20px;
+  }
+
+  nav ul {
+    gap: 40px;
+  }
+
+  nav ul li a {
+    font-size: 1.2rem;
+  }
+
+  .nav-highlight {
+    width: 100px;
+  }
+}
+
+/* Medium laptops (1000px to 1199px) - Keep side by side */
 @media screen and (max-width: 1199px) {
   body {
     padding: 20px;
@@ -393,59 +497,103 @@ a {
   }
 
   .container {
-    gap: 15px;
     padding: 15px;
+    gap: 15px;
   }
 
   .card {
-    max-width: 85%;
-    padding: 12px;
+    max-width: 500px;
+    padding: 15px;
   }
 
   .card h3 {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
-  label {
-    font-size: 12px;
-  }
-
-  input,
-  select {
-    padding: 5px;
-  }
-
-  .btn {
-    padding: 6px;
-    font-size: 12px;
-  }
-
-  .search-btn {
-    padding: 5px 8px;
-  }
-
-  .preview-boxes .box {
-    font-size: 1rem;
-    min-height: 70px;
-  }
-
-  .preview-boxes .box:nth-child(3) {
-    font-size: 0.8rem;
+  .preview-boxes {
+    height: 120px;
   }
 
   .recommendation-box {
-    min-height: 50px;
-    font-size: 0.8rem;
+    height: 110px;
+    min-height: 110px;
+    max-height: 110px;
   }
 }
 
-/* Mobiles (below 768px) */
+/* Small laptops/tablets (768px to 999px) - Stack vertically */
+@media screen and (max-width: 999px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .logo img {
+    margin-left: 0;
+    margin-right: 0;
+    height: 90px;
+  }
+
+  nav {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  nav ul {
+    flex-direction: row;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  nav ul li a {
+    font-size: 1rem;
+  }
+
+  .nav-highlight {
+    width: 70px;
+  }
+
+  .container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .card {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .preview-boxes {
+    flex-direction: column;
+    height: auto;
+    gap: 10px;
+  }
+
+  .preview-boxes .box {
+    height: 80px;
+    min-height: 80px;
+  }
+
+  .recommendation-box {
+    height: 100px;
+    min-height: 100px;
+    max-height: 100px;
+  }
+
+  .input-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobiles (below 768px) - Stack vertically */
 @media screen and (max-width: 767px) {
   body {
     padding: 15px;
-    background-size: cover;
-    background-attachment: fixed;
-    min-height: 100dvh;
   }
 
   header {
@@ -483,149 +631,159 @@ a {
 
   .container {
     flex-direction: column;
-    padding: 10px;
-    gap: 10px;
+    gap: 15px;
+    padding: 5px;
   }
 
   .card {
+    max-width: 100%;
     width: 100%;
-    padding: 10px;
+    padding: 15px;
   }
 
   .card h3 {
-    font-size: 0.9rem;
-  }
-
-  label {
-    font-size: 11px;
-  }
-
-  input,
-  select {
-    padding: 4px;
-    margin-bottom: 6px;
-  }
-
-  .input-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .btn {
-    padding: 5px;
-    font-size: 11px;
-  }
-
-  .search-btn {
-    padding: 4px 6px;
+    font-size: 1rem;
   }
 
   .preview-boxes {
     flex-direction: column;
-    gap: 6px;
+    height: auto;
+    gap: 8px;
   }
 
   .preview-boxes .box {
-    font-size: 0.9rem;
-    min-height: 60px;
-  }
-
-  .preview-boxes .box:nth-child(3) {
-    font-size: 0.7rem;
+    height: 70px;
+    min-height: 70px;
+    font-size: 1rem;
   }
 
   .recommendation-box {
-    min-height: 40px;
-    font-size: 0.7rem;
+    height: 90px;
+    min-height: 90px;
+    max-height: 90px;
+    font-size: 0.9rem;
+  }
+
+  .input-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  label {
+    font-size: 12px;
+  }
+
+  input, select {
     padding: 6px;
+    font-size: 14px;
+  }
+
+  .btn {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .question-box input {
+    padding: 8px;
+    height: 36px;
+  }
+
+  .search-btn {
+    height: 36px;
+    padding: 0 10px;
+    font-size: 12px;
   }
 }
 
 
-.preview-boxes {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
-  justify-content: space-between;
-  align-items: stretch; 
-  height:150px;
+/* Small devices to tablets (600px to 999px) - Transition range */
+@media only screen and (max-width: 999px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+    padding: 0 15px;
+  }
+  .logo img {
+    margin-left: 0;
+    margin-right: 0;
+    height: 90px;
+  }
+  nav {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    padding: 10px;
+    margin-top: 10px;
+  }
+  nav ul {
+    flex-direction: row;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  nav ul li a {
+    font-size: 1rem;
+  }
+  .nav-highlight {
+    width: 70px;
+  }
 }
 
-
-.preview-boxes .box{
-  flex: 1;
-  background: #f9f9f9;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  padding: 10px;
-  color: #000;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  text-align: left;
+/* Mobiles (below 768px) - Phone-specific styling */
+@media only screen and (max-width: 767px) {
+  body {
+    padding: 15px;
+  }
+  header {
+    flex-direction: column;
+    padding: 0 10px;
+  }
+  .logo img {
+    margin-left: 0;
+    margin-right: 0;
+    height: 70px;
+  }
+  nav {
+    max-width: 100%;
+    height: auto;
+    padding: 10px;
+    margin-top: 10px;
+  }
+  nav ul {
+    flex-direction: row;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  nav ul li a {
+    font-size: 0.9rem;
+  }
+  .nav-highlight {
+    width: 70px;
+  }
 }
 
-.recommendation-box {
-  background: #f9f9f9;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  padding: 10px;
-  color: #000;
-  font-size: 1rem;
-
-  /* 👇 force it to stay fixed */
-  height: 114px;
-  min-height: 114px;
-  max-height: 114px;
-
-  /* 👇 ensure scrolling happens */
-  overflow-y: auto;
-  overflow-x: hidden;
-
-  /* 👇 kill flex stretching */
-  flex: none;
-  display: block;
-  box-sizing: border-box;
-  white-space: pre-wrap;   /* keep line breaks */
-  word-wrap: break-word;   /* break long words */
-}
-
-
-.question-box {
-  display: flex;
-  gap: 5px;
-  margin-bottom: 10px;
-  align-items: stretch;
-}
-
-
-.question-box input {
-  flex: 1;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  height: 40px;
-}
-}
-
-.recommendation-box {
-  background: #f9f9f9;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  padding: 10px;
-  margin-top: 8px;
-
-  color: #000;
-  font-size: 1rem;
-  white-space: pre-wrap;  /* preserve line breaks */
-  word-wrap: break-word;
-
-  height: 140px;           /* fixed height */
-  min-height: 140px;
-  max-height: 140px;
-  overflow-y: auto;        /* vertical scroll */
-  overflow-x: hidden;
-
-  display: block;          /* change from flex to block */
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  header {
+    padding: 0 10px;
+  }
+  .logo img {
+    margin-left: 0;
+    margin-right: 0;
+    height: 60px;
+  }
+  nav {
+    padding: 8px;
+    margin-top: 8px;
+  }
+  nav ul {
+    gap: 10px;
+  }
+  nav ul li a {
+    font-size: 0.8rem;
+  }
+  .nav-highlight {
+    width: 60px;
+  }
 }

@@ -21,12 +21,11 @@ body {
   min-height: 100dvh;
 }
 
-
 header {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 0 40px; /* Restored original padding */
+  padding: 0px 40px;
 }
 
 .logo {
@@ -37,12 +36,11 @@ header {
 }
 
 .logo img {
-  margin-left: 100px; /* Restored original margin */
-  margin-right: 300px; /* Restored original margin */
+  margin-left: 100px;
   border-radius: 50px;
   height: 130px;
   width: auto;
-  max-width: 100%; /* Prevents overflow */
+  margin-right: 300px;
 }
 
 nav {
@@ -51,7 +49,7 @@ nav {
   max-width: 800px;
   height: 60px;
   background: rgba(249, 251, 251, 0.525);
-  padding: 2px 40px; /* Restored original padding */
+  padding: 2px 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,7 +58,7 @@ nav {
 nav ul {
   list-style: none;
   display: flex;
-  gap: 80px; /* Restored original gap */
+  gap: 80px;
 }
 
 nav ul li a {
@@ -236,133 +234,64 @@ nav ul li a {
   pointer-events: none;
 }
 
-/* Media Queries for about.css - Header/Nav Consistency Only */
+/* Media Queries */
 
-/* Large Laptops (1400px to 1599px) */
-@media screen and (max-width: 1599px) and (min-width: 1400px) {
-  header {
-    padding: 0 35px;
-  }
-
-  .logo img {
-    margin-left: 85px;
-    margin-right: 260px;
-    height: 125px;
-  }
-
-  nav ul {
-    gap: 75px;
-  }
-}
-
-/* Standard Laptops (1200px to 1399px) */
-@media screen and (max-width: 1399px) and (min-width: 1200px) {
+/* Large laptops/desktops (1200px to 1399px) */
+@media screen and (max-width: 1399px) {
   body {
     padding: 40px;
   }
-
-  header {
-    padding: 0 30px;
-  }
-
+  
   .logo img {
-    margin-left: 70px;
-    margin-right: 220px;
+    margin-left: 80px;
+    margin-right: 200px;
     height: 120px;
   }
-
-  nav {
-    max-width: 700px;
-    height: 55px;
-    padding: 2px 35px;
-  }
-
+  
   nav ul {
     gap: 60px;
   }
-
-  nav ul li a {
-    font-size: 1.3rem;
-  }
-
-  .nav-highlight {
-    width: 120px;
-  }
-}
-
-/* Medium Laptops (1000px to 1199px) */
-@media screen and (max-width: 1199px) and (min-width: 1000px) {
-  body {
-    padding: 35px;
-  }
-
-  header {
-    padding: 0 25px;
-  }
-
-  .logo img {
-    margin-left: 50px;
-    margin-right: 180px;
-    height: 110px;
-  }
-
-  nav {
-    max-width: 600px;
-    height: 50px;
-    padding: 2px 25px;
-  }
-
-  nav ul {
-    gap: 50px;
-  }
-
-  nav ul li a {
-    font-size: 1.2rem;
-  }
-
-  .nav-highlight {
-    width: 105px;
-  }
-
+  
   .about {
-    padding: 60px;
-    margin-left: 60px;
-    gap: 40px;
+    padding: 80px;
+    margin-left: 80px;
   }
-
-  .cap-wrapper {
-    gap: 40px;
-  }
-
+  
   .cap-grid {
-    margin-left: 40px;
+    margin-left: 50px;
+    max-width: 600px;
   }
 }
 
-/* Small Laptops (768px to 999px) */
-@media screen and (max-width: 999px) and (min-width: 768px) {
+/* Medium laptops (1000px to 1199px) */
+@media screen and (max-width: 1199px) {
   body {
     padding: 30px;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100dvh;
   }
 
   header {
-    padding: 0 20px;
+    padding: 0px 20px;
+    flex-wrap: wrap;
   }
 
   .logo img {
-    margin-left: 25px;
-    margin-right: 120px;
+    margin-left: 20px;
+    margin-right: 50px;
     height: 100px;
   }
 
   nav {
-    max-width: 500px;
-    height: 45px;
+    max-width: 100%;
+    height: 50px;
     padding: 2px 20px;
+    min-width: 300px;
   }
 
   nav ul {
-    gap: 35px;
+    gap: 30px;
   }
 
   nav ul li a {
@@ -374,8 +303,149 @@ nav ul li a {
   }
 
   .about {
+    padding: 40px;
+    margin-left: 20px;
+    gap: 30px;
+  }
+
+  .about-text {
+    max-width: 500px;
+  }
+
+  .about-text h1 {
+    font-size: 2rem;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+  }
+
+  .about-image img {
+    width: 280px;
+    margin-top: 30px;
+  }
+
+  .capabilities {
+    padding: 40px 30px;
+  }
+
+  .cap-wrapper {
+    gap: 30px;
     flex-direction: column;
-    padding: 40px 20px;
+  }
+
+  .cap-title {
+    order: -1;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .cap-title h2 {
+    font-size: 1.8rem;
+    white-space: normal;
+  }
+
+  .cap-title p {
+    font-size: 18px;
+  }
+
+  .cap-grid {
+    order: 0;
+    margin-left: 0;
+    gap: 20px;
+    max-width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .cap-box {
+    padding: 30px 15px 15px;
+    max-width: 100%;
+    height: 180px;
+    font-size: 0.95rem;
+  }
+
+  .cap-box h3 {
+    font-size: 1.6rem;
+    top: -12px;
+    left: -12px;
+  }
+
+  .cap-box h4 {
+    font-size: 1rem;
+  }
+
+  .why-us {
+    padding: 40px 30px;
+  }
+
+  .why-us h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+
+  .why-grid {
+    gap: 20px;
+    max-width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .why-box {
+    padding: 15px;
+    max-width: 100%;
+    height: 200px;
+    font-size: 0.95rem;
+  }
+
+  .why-box h4 {
+    font-size: 1rem;
+  }
+
+  .why-box span {
+    font-size: 1.2rem;
+    bottom: 10px;
+    right: 12px;
+  }
+
+  .metal-decor {
+    width: 50px;
+  }
+}
+
+/* Small laptops/tablets (768px to 999px) */
+@media screen and (max-width: 999px) {
+  body {
+    padding: 25px;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .logo img {
+    margin-left: 0;
+    margin-right: 0;
+    height: 90px;
+  }
+
+  nav {
+    width: 100%;
+    max-width: none;
+  }
+
+  nav ul {
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav ul li a {
+    font-size: 1rem;
+  }
+
+  .about {
+    flex-direction: column;
+    padding: 30px 20px;
     margin-left: 0;
     text-align: center;
   }
@@ -389,128 +459,24 @@ nav ul li a {
     margin-top: 0;
   }
 
-  .cap-wrapper {
-    flex-direction: column;
-    gap: 30px;
-  }
-
-  .cap-title {
-    order: -1;
-    margin-left: 0;
-    text-align: center;
-  }
-
   .cap-grid {
-    order: 0;
-    margin-left: 0;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 }
 
-/* Tablets (568px to 767px) */
-@media screen and (max-width: 767px) and (min-width: 568px) {
-  body {
-    padding: 25px;
-  }
-
-  header {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    padding: 0 15px;
-  }
-
-  .logo img {
-    margin-left: 0;
-    margin-right: 0;
-    height: 85px;
-  }
-
-  nav {
-    max-width: 100%;
-    width: 400px;
-    height: auto;
-    padding: 8px 20px;
-    margin-top: 0;
-  }
-
-  nav ul {
-    gap: 25px;
-    justify-content: center;
-  }
-
-  nav ul li a {
-    font-size: 1rem;
-  }
-
-  .nav-highlight {
-    width: 80px;
-  }
-
-  .about {
-    flex-direction: column;
-    padding: 30px 15px;
-    margin-left: 0;
-    gap: 25px;
-  }
-
-  .about-image {
-    order: -1;
-  }
-
-  .about-text {
-    max-width: 100%;
-    text-align: center;
-  }
-
-  .about-image img {
-    width: 220px;
-    margin-top: 0;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .capabilities {
-    padding: 40px 20px;
-  }
-
-  .cap-wrapper {
-    flex-direction: column;
-    gap: 25px;
-  }
-
-  .cap-title {
-    order: -1;
-    margin-left: 0;
-    text-align: center;
-  }
-
-  .cap-grid {
-    order: 0;
-    margin-left: 0;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  }
-
-  .why-us {
-    padding: 40px 20px;
-  }
-
-  .why-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-}
-
-/* Mobile Phones (below 568px) */
-@media screen and (max-width: 567px) {
+/* Mobiles (below 768px) */
+@media screen and (max-width: 767px) {
   body {
     padding: 15px;
+    background: url("/aboutusbg.jpg") no-repeat center center/cover;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100dvh;
+    width: 100vw;
   }
 
   header {
     flex-direction: column;
-    align-items: center;
-    gap: 12px;
     padding: 0 10px;
   }
 
@@ -522,10 +488,9 @@ nav ul li a {
 
   nav {
     max-width: 100%;
-    width: 100%;
     height: auto;
-    padding: 8px 10px;
-    margin-top: 0;
+    padding: 10px;
+    margin-top: 10px;
   }
 
   nav ul {
@@ -545,9 +510,9 @@ nav ul li a {
 
   .about {
     flex-direction: column;
-    padding: 15px;
-    margin-left: 0;
-    margin-right: 0;
+    padding:15;
+    margin-left: 10px;
+    margin-right: 10px;
     gap: 20px;
   }
 
@@ -664,70 +629,232 @@ nav ul li a {
   }
 }
 
+/* Large laptops/desktops (1200px to 1399px) */
+@media screen and (max-width: 1399px) {
+  body {
+    padding: 40px;
+  }
 
-header {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 0 40px; /* Restored original padding */
+  header {
+    padding: 0 20px;
+  }
+
+  .logo img {
+    margin-left: 50px;
+    margin-right: 150px;
+    height: 100px;
+  }
+
+  nav {
+    max-width: 600px;
+    height: 50px;
+    padding: 2px 20px;
+  }
+
+  nav ul {
+    gap: 40px;
+  }
+
+  nav ul li a {
+    font-size: 1.2rem;
+  }
+
+  .nav-highlight {
+    width: 100px;
+  }
 }
 
-.logo {
-  padding: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Medium laptops (1000px to 1199px) */
+@media screen and (max-width: 1199px) {
+  header {
+    padding: 0 15px;
+  }
+
+  .logo img {
+    margin-left: 20px;
+    margin-right: 30px;
+    height: 90px;
+  }
+
+  nav {
+    max-width: 500px;
+    height: 45px;
+    padding: 2px 15px;
+  }
+
+  nav ul {
+    gap: 30px;
+  }
+
+  nav ul li a {
+    font-size: 1.1rem;
+  }
+
+  .nav-highlight {
+    width: 90px;
+  }
 }
 
-.logo img {
-  margin-left: 100px; /* Restored original margin */
-  margin-right: 300px; /* Restored original margin */
-  border-radius: 50px;
-  height: 130px;
-  width: auto;
-  max-width: 100%; /* Prevents overflow */
+/* Small laptops/tablets (768px to 999px) */
+@media screen and (max-width: 999px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .logo img {
+    margin-left: 0;
+    margin-right: 0;
+    height: 90px;
+  }
+
+  nav {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  nav ul {
+    flex-direction: row;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  nav ul li a {
+    font-size: 1rem;
+  }
+
+  .nav-highlight {
+    width: 70px;
+  }
 }
 
-nav {
-  position: relative;
-  flex: 1;
-  max-width: 800px;
-  height: 60px;
-  background: rgba(249, 251, 251, 0.525);
-  padding: 2px 40px; /* Restored original padding */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Mobiles (below 768px) */
+@media screen and (max-width: 767px) {
+  header {
+    flex-direction: column;
+    padding: 0 10px;
+  }
+
+  .logo img {
+    margin-left: 0;
+    margin-right: 0;
+    height: 70px;
+  }
+
+  nav {
+    max-width: 100%;
+    height: auto;
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  nav ul {
+    flex-direction: row;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  nav ul li a {
+    font-size: 0.9rem;
+  }
+
+  .nav-highlight {
+    width: 70px;
+  }
+}
+/* Small devices to tablets (600px to 999px) - Transition range */
+@media only screen and (max-width: 999px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+    padding: 0 15px;
+  }
+  .logo img {
+    margin-left: 0;
+    margin-right: 0;
+    height: 90px;
+  }
+  nav {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    padding: 10px;
+    margin-top: 10px;
+  }
+  nav ul {
+    flex-direction: row;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  nav ul li a {
+    font-size: 1rem;
+  }
+  .nav-highlight {
+    width: 70px;
+  }
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 80px; /* Restored original gap */
+/* Mobiles (below 768px) - Phone-specific styling */
+@media only screen and (max-width: 767px) {
+  body {
+    padding: 15px;
+  }
+  header {
+    flex-direction: column;
+    padding: 0 10px;
+  }
+  .logo img {
+    margin-left: 0;
+    margin-right: 0;
+    height: 70px;
+  }
+  nav {
+    max-width: 100%;
+    height: auto;
+    padding: 10px;
+    margin-top: 10px;
+  }
+  nav ul {
+    flex-direction: row;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  nav ul li a {
+    font-size: 0.9rem;
+  }
+  .nav-highlight {
+    width: 70px;
+  }
 }
 
-nav ul li a {
-  position: relative;
-  display: inline-block;
-  z-index: 2;
-  color: #000;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1.4rem;
-  transition: color 0.3s ease;
-  font-family: "Inter";
-}
-
-.nav-highlight {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 130px;
-  background: rgba(62, 62, 62, 0.5);
-  border-radius: 8px;
-  transition: all 0.4s ease;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0;
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  header {
+    padding: 0 10px;
+  }
+  .logo img {
+    margin-left: 0;
+    margin-right: 0;
+    height: 60px;
+  }
+  nav {
+    padding: 8px;
+    margin-top: 8px;
+  }
+  nav ul {
+    gap: 10px;
+  }
+  nav ul li a {
+    font-size: 0.8rem;
+  }
+  .nav-highlight {
+    width: 60px;
+  }
 }

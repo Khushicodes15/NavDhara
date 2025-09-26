@@ -201,288 +201,129 @@ nav ul li a {
   width: 60px;
 }
 
-/* Media Queries for contact.css - Header/Nav Consistency Only */
+/* Media Queries */
 
-/* Large Laptops (1400px to 1599px) */
-@media screen and (max-width: 1599px) and (min-width: 1400px) {
-  header {
-    padding: 0 35px;
-  }
-
-  .logo img {
-    margin-left: 85px;
-    margin-right: 260px;
-    height: 125px;
-  }
-
-  nav ul {
-    gap: 75px;
-  }
-}
-
-/* Standard Laptops (1200px to 1399px) */
-@media screen and (max-width: 1399px) and (min-width: 1200px) {
+/* Laptops/Tablets (768px to 1199px) */
+@media screen and (max-width: 1199px) {
   body {
-    padding: 40px;
+    padding: clamp(20px, 3vw, 30px);
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100dvh;
   }
 
   header {
-    padding: 0 30px;
+    padding: 0 clamp(15px, 2vw, 20px);
   }
 
   .logo img {
-    margin-left: 70px;
-    margin-right: 220px;
-    height: 120px;
+    margin-left: clamp(30px, 5vw, 50px);
+    margin-right: clamp(50px, 10vw, 100px);
+    height: clamp(80px, 8vw, 100px);
   }
 
   nav {
-    max-width: 700px;
-    height: 55px;
-    padding: 2px 35px;
+    max-width: clamp(500px, 80vw, 600px);
+    height: clamp(40px, 4vw, 50px);
+    padding: 2px clamp(15px, 2vw, 20px);
   }
 
   nav ul {
-    gap: 60px;
+    gap: clamp(20px, 4vw, 40px);
   }
 
   nav ul li a {
-    font-size: 1.3rem;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
   }
 
   .nav-highlight {
-    width: 120px;
-  }
-}
-
-/* Medium Laptops (1000px to 1199px) */
-@media screen and (max-width: 1199px) and (min-width: 1000px) {
-  body {
-    padding: 35px;
-  }
-
-  header {
-    padding: 0 25px;
-  }
-
-  .logo img {
-    margin-left: 50px;
-    margin-right: 180px;
-    height: 110px;
-  }
-
-  nav {
-    max-width: 600px;
-    height: 50px;
-    padding: 2px 25px;
-  }
-
-  nav ul {
-    gap: 50px;
-  }
-
-  nav ul li a {
-    font-size: 1.2rem;
-  }
-
-  .nav-highlight {
-    width: 105px;
-  }
-
-  .contact-container {
-    gap: 80px;
-    margin-top: 40px;
-    padding: 0 20px;
-  }
-
-  .contact-form {
-    max-width: 450px;
-  }
-}
-
-/* Small Laptops (768px to 999px) */
-@media screen and (max-width: 999px) and (min-width: 768px) {
-  body {
-    padding: 30px;
-  }
-
-  header {
-    padding: 0 20px;
-  }
-
-  .logo img {
-    margin-left: 25px;
-    margin-right: 120px;
-    height: 100px;
-  }
-
-  nav {
-    max-width: 500px;
-    height: 45px;
-    padding: 2px 20px;
-  }
-
-  nav ul {
-    gap: 35px;
-  }
-
-  nav ul li a {
-    font-size: 1.1rem;
-  }
-
-  .nav-highlight {
-    width: 90px;
+    width: clamp(80px, 8vw, 100px);
   }
 
   .contact-container {
     flex-direction: column;
-    gap: 40px;
-    margin-top: 30px;
-    padding: 0 15px;
-  }
-
-  .contact-form {
-    max-width: 100%;
-  }
-
-  .social-icons {
-    margin-left: 0;
-    justify-content: center;
-  }
-}
-
-/* Tablets (568px to 767px) */
-@media screen and (max-width: 767px) and (min-width: 568px) {
-  body {
-    padding: 25px;
-  }
-
-  header {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    padding: 0 15px;
-  }
-
-  .logo img {
-    margin-left: 0;
-    margin-right: 0;
-    height: 85px;
-  }
-
-  nav {
-    max-width: 100%;
-    width: 400px;
-    height: auto;
-    padding: 8px 20px;
-    margin-top: 0;
-  }
-
-  nav ul {
-    gap: 25px;
-    justify-content: center;
-  }
-
-  nav ul li a {
-    font-size: 1rem;
-  }
-
-  .nav-highlight {
-    width: 80px;
-  }
-
-  .contact-container {
-    flex-direction: column;
-    gap: 30px;
-    margin-top: 25px;
-    padding: 0 15px;
-    max-width: 100%;
-    margin: 25px auto 0;
-    box-sizing: border-box;
-    overflow-x: hidden;
+    gap: clamp(20px, 4vw, 40px);
+    margin-top: clamp(20px, 3vw, 30px);
+    padding: 0 clamp(15px, 2vw, 20px);
   }
 
   .contact-info h2 {
-    font-size: 1.8rem;
-    text-align: center;
+    font-size: clamp(1.6rem, 2.5vw, 1.8rem);
   }
 
   .contact-info p {
-    font-size: 1rem;
-    text-align: center;
-    margin-bottom: 20px;
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    margin-bottom: clamp(15px, 2vw, 20px);
   }
 
   .contact-item {
-    padding: 10px 15px;
-    font-size: 1rem;
-    gap: 10px;
+    padding: clamp(8px, 1.5vw, 10px) clamp(12px, 2vw, 15px);
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    gap: clamp(8px, 1.5vw, 12px);
   }
 
   .contact-item img {
-    width: 35px;
-    height: 35px;
+    width: clamp(30px, 4vw, 35px);
+    height: clamp(30px, 4vw, 35px);
   }
 
   .contact-item img[alt="Phone Icon"] {
-    width: 40px;
-    height: 40px;
+    width: clamp(35px, 5vw, 40px);
+    height: clamp(35px, 5vw, 40px);
   }
 
   .or-text {
-    font-size: 0.9rem;
-    margin: 12px 0;
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+    margin: clamp(10px, 1.5vw, 12px) 0;
   }
 
   .social-icons {
     margin-left: 0;
     justify-content: center;
-    gap: 20px;
-    max-width: 100%;
-    flex-wrap: wrap;
+    gap: clamp(15px, 3vw, 20px);
   }
 
   .social-icons img {
-    width: 45px;
-    height: 42px;
+    width: clamp(40px, 5vw, 45px);
+    height: clamp(35px, 4vw, 40px);
   }
 
   .social-icons img[alt="Twitter"] {
-    width: 50px;
-    height: 50px;
+    width: clamp(45px, 6vw, 50px);
+    height: clamp(45px, 6vw, 50px);
     margin-top: 0;
   }
 
   .contact-form {
-    max-width: 100%;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 12px;
+    padding: clamp(10px, 1.5vw, 12px);
+    width:400px;
   }
 
   .contact-form input,
   .contact-form textarea {
-    padding: 10px;
-    margin-bottom: 12px;
+    padding: clamp(8px, 1.5vw, 10px);
+    margin-bottom: clamp(10px, 1.5vw, 15px);
   }
 
   .contact-form button {
-    padding: 10px 20px;
-    font-size: 0.9rem;
+    padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
   }
 }
 
-/* Mobile Phones (below 568px) */
-@media screen and (max-width: 567px) {
+/* Mobiles (below 768px) */
+@media screen and (max-width: 767px) {
   body {
-    padding: 15px;
-    width: 100%;
+    padding: 15x;
+    background: url("/faqbg.jpg") no-repeat center center/cover;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100dvh;
+    width: 100vw;
   }
 
   header {
     flex-direction: column;
-    align-items: center;
-    gap: 12px;
     padding: 0 10px;
   }
 
@@ -494,10 +335,9 @@ nav ul li a {
 
   nav {
     max-width: 100%;
-    width: 100%;
     height: auto;
-    padding: 8px 10px;
-    margin-top: 0;
+    padding: 10px;
+    margin-top: 10px;
   }
 
   nav ul {
@@ -521,23 +361,17 @@ nav ul li a {
     margin-top: 20px;
     padding: 0 10px;
     max-width: 100%;
-    width: 100%;
-    margin: 20px auto 0;
-    box-sizing: border-box;
-    overflow-x: hidden;
   }
 
   .contact-info h2 {
     font-size: 1.4rem;
     margin-bottom: 10px;
-    text-align: center;
   }
 
   .contact-info p {
     font-size: 0.8rem;
     margin-bottom: 10px;
     line-height: 1.4;
-    text-align: center;
   }
 
   .contact-item {
@@ -567,8 +401,6 @@ nav ul li a {
     justify-content: center;
     gap: 10px;
     margin-top: 10px;
-    max-width: 100%;
-    flex-wrap: wrap;
   }
 
   .social-icons img {
@@ -585,9 +417,7 @@ nav ul li a {
   .contact-form {
     padding: 8px;
     border-radius: 6px;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
+    width:300px;
   }
 
   .contact-form label {
@@ -600,6 +430,7 @@ nav ul li a {
     padding: 6px;
     margin-bottom: 8px;
     border-radius: 6px;
+  
   }
 
   .contact-form button {
@@ -609,69 +440,272 @@ nav ul li a {
   }
 }
 
-header {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 0 40px; /* Restored original padding */
+
+/* Global protection */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
-.logo {
-  padding: 5px;
-  display: flex;
-  align-items: center;
+/* Contact container fix */
+.contact-container {
+  width: 100%;
+  max-width: 1200px;      /* cap overall width */
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Prevent social icons from pushing layout */
+.social-icons {
+  margin-left: 0;         /* center handled with flex */
   justify-content: center;
+  max-width: 100%;
+  flex-wrap: wrap;        /* ensures icons wrap instead of breaking layout */
 }
 
-.logo img {
-  margin-left: 100px; /* Restored original margin */
-  margin-right: 300px; /* Restored original margin */
-  border-radius: 50px;
-  height: 130px;
-  width: auto;
-  max-width: 100%; /* Prevents overflow */
+/* Contact form safe width */
+.contact-form {
+  max-width: 100%;        /* no fixed overflow */
+  width: 100%;            /* take available space */
+  box-sizing: border-box;
 }
 
-nav {
-  position: relative;
-  flex: 1;
-  max-width: 800px;
-  height: 60px;
-  background: rgba(249, 251, 251, 0.525);
-  padding: 2px 40px; /* Restored original padding */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Kill the scrollbar bug on mobile */
+@media screen and (max-width: 767px) {
+  body {
+    width: 100%;          /* instead of 100vw, fixes overflow */
+  }
+  .contact-form {
+    width: 100%;          /* allow form to shrink safely */
+  }
+}
+/* Large laptops/desktops (1200px to 1399px) */
+@media screen and (max-width: 1399px) {
+  body {
+    padding: 40px;
+  }
+
+  header {
+    padding: 0 20px;
+  }
+
+  .logo img {
+    margin-left: 50px;
+    margin-right: 150px;
+    height: 100px;
+  }
+
+  nav {
+    max-width: 600px;
+    height: 50px;
+    padding: 2px 20px;
+  }
+
+  nav ul {
+    gap: 40px;
+  }
+
+  nav ul li a {
+    font-size: 1.2rem;
+  }
+
+  .nav-highlight {
+    width: 100px;
+  }
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 80px; /* Restored original gap */
+/* Medium laptops (1000px to 1199px) */
+@media screen and (max-width: 1199px) {
+  header {
+    padding: 0 15px;
+  }
+
+  .logo img {
+    margin-left: 20px;
+    margin-right: 30px;
+    height: 90px;
+  }
+
+  nav {
+    max-width: 500px;
+    height: 45px;
+    padding: 2px 15px;
+  }
+
+  nav ul {
+    gap: 30px;
+  }
+
+  nav ul li a {
+    font-size: 1.1rem;
+  }
+
+  .nav-highlight {
+    width: 90px;
+  }
 }
 
-nav ul li a {
-  position: relative;
-  display: inline-block;
-  z-index: 2;
-  color: #000;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1.4rem;
-  transition: color 0.3s ease;
-  font-family: "Inter";
+/* Small laptops/tablets (768px to 999px) */
+@media screen and (max-width: 999px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .logo img {
+    margin-left: 0;
+    margin-right: 0;
+    height: 90px;
+  }
+
+  nav {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  nav ul {
+    flex-direction: row;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  nav ul li a {
+    font-size: 1rem;
+  }
+
+  .nav-highlight {
+    width: 70px;
+  }
 }
 
-.nav-highlight {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 130px;
-  background: rgba(62, 62, 62, 0.5);
-  border-radius: 8px;
-  transition: all 0.4s ease;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0;
+/* Mobiles (below 768px) */
+@media screen and (max-width: 767px) {
+  header {
+    flex-direction: column;
+    padding: 0 10px;
+  }
+
+  .logo img {
+    margin-left: 0;
+    margin-right: 0;
+    height: 70px;
+  }
+
+  nav {
+    max-width: 100%;
+    height: auto;
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  nav ul {
+    flex-direction: row;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  nav ul li a {
+    font-size: 0.9rem;
+  }
+
+  .nav-highlight {
+    width: 70px;
+  }
+}
+/* Small devices to tablets (600px to 999px) - Transition range */
+@media only screen and (max-width: 999px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+    padding: 0 15px;
+  }
+  .logo img {
+    margin-left: 0;
+    margin-right: 0;
+    height: 90px;
+  }
+  nav {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    padding: 10px;
+    margin-top: 10px;
+  }
+  nav ul {
+    flex-direction: row;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  nav ul li a {
+    font-size: 1rem;
+  }
+  .nav-highlight {
+    width: 70px;
+  }
+}
+
+/* Mobiles (below 768px) - Phone-specific styling */
+@media only screen and (max-width: 767px) {
+  body {
+    padding: 15px;
+  }
+  header {
+    flex-direction: column;
+    padding: 0 10px;
+  }
+  .logo img {
+    margin-left: 0;
+    margin-right: 0;
+    height: 70px;
+  }
+  nav {
+    max-width: 100%;
+    height: auto;
+    padding: 10px;
+    margin-top: 10px;
+  }
+  nav ul {
+    flex-direction: row;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  nav ul li a {
+    font-size: 0.9rem;
+  }
+  .nav-highlight {
+    width: 70px;
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  header {
+    padding: 0 10px;
+  }
+  .logo img {
+    margin-left: 0;
+    margin-right: 0;
+    height: 60px;
+  }
+  nav {
+    padding: 8px;
+    margin-top: 8px;
+  }
+  nav ul {
+    gap: 10px;
+  }
+  nav ul li a {
+    font-size: 0.8rem;
+  }
+  .nav-highlight {
+    width: 60px;
+  }
 }
