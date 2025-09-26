@@ -167,48 +167,6 @@ button:hover {
   width: 20px;
   height: 20px;
 }
-
-
-@media (max-width: 1024px) {
-  .container {
-    flex-direction: column;
-  }
-  .left-panel, .right-panel {
-    flex: none;
-    width: 100%;
-    height: auto;
-  }
-  .right-panel {
-    padding: 30px;
-  }
-}
-
-@media (max-width: 768px) {
-  .logo-block {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .bg-img {
-    width: 100%;
-    margin-top: -20px;
-  }
-  form {
-    gap: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .right-panel {
-    padding: 20px;
-  }
-  input, select, button {
-    font-size: 0.9rem;
-    padding: 10px;
-  }
-}
-
-
-
 input.invalid,
 input.invalid:focus {
   border: 2px solid rgba(231, 76, 60, 0.95);
@@ -241,4 +199,284 @@ html, body {
 .left-panel, .right-panel {
   max-width: 50vw;   
   overflow: hidden;
+}
+
+/* Small phones (480px and down) */
+@media only screen and (max-width: 480px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+  .left-panel, .right-panel {
+    max-width: 100vw;
+    padding: 15px;
+    width: 100%;
+  }
+  .logo-block {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px;
+  }
+  .logo-img {
+    width: 50px;
+  }
+  .logo-text h2 {
+    font-size: 1rem;
+  }
+  .logo-text p {
+    font-size: 0.75rem;
+  }
+  .bg-img {
+    margin-top: -10px;
+    width: 100%;
+    height: auto;
+  }
+  .right-panel {
+    padding: 15px;
+  }
+  input, select, button {
+    font-size: 0.85rem;
+    padding: 8px;
+  }
+  .name-fields {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .social-buttons {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .social-buttons button {
+    width: 100%;
+  }
+}
+
+/* Medium phones (481px to 767px) */
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+  .left-panel, .right-panel {
+    max-width: 100vw;
+    padding: 20px;
+    width: 100%;
+  }
+  .logo-block {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px;
+  }
+  .logo-img {
+    width: 60px;
+  }
+  .logo-text h2 {
+    font-size: 1.1rem;
+  }
+  .logo-text p {
+    font-size: 0.8rem;
+  }
+  .bg-img {
+    margin-top: -15px;
+    width: 100%;
+    height: auto;
+  }
+  .right-panel {
+    padding: 25px;
+  }
+  .name-fields {
+    gap: 10px;
+  }
+  input, select, button {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}
+
+/* Tablets (768px to 1023px) */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+  .left-panel, .right-panel {
+    max-width: 100vw;
+    padding: 30px;
+    width: 100%;
+  }
+  .logo-block {
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+  }
+  .logo-img {
+    width: 70px;
+  }
+  .logo-text h2 {
+    font-size: 1.2rem;
+  }
+  .logo-text p {
+    font-size: 0.9rem;
+  }
+  .bg-img {
+    margin-top: -20px;
+    width: 100%;
+    height: auto;
+  }
+  .right-panel {
+    padding: 40px;
+  }
+  .name-fields {
+    gap: 12px;
+  }
+  input, select, button {
+    padding: 12px;
+  }
+}
+
+/* Smaller laptops/tablets (1024px to 1199px) */
+@media only screen and (min-width: 1024px) and (max-width: 1199px) {
+  .container {
+    flex-direction: row;
+  }
+  .left-panel, .right-panel {
+    max-width: 50vw;
+    padding: 40px;
+    width: 50%;
+  }
+  .logo-block {
+    gap: 15px;
+    padding: 15px;
+  }
+  .logo-img {
+    width: 70px;
+  }
+  .logo-text h2 {
+    font-size: 1.2rem;
+  }
+  .logo-text p {
+    font-size: 0.9rem;
+  }
+  .bg-img {
+    margin-top: -30px;
+    width: 100%;
+    height: auto;
+  }
+  .right-panel {
+    padding: 50px;
+  }
+  .name-fields {
+    gap: 15px;
+  }
+}
+
+/* Medium laptops (1200px to 1365px) */
+@media only screen and (min-width: 1200px) and (max-width: 1365px) {
+  .container {
+    flex-direction: row;
+  }
+  .left-panel, .right-panel {
+    max-width: 50vw;
+    padding: 50px;
+    width: 50%;
+  }
+  .logo-block {
+    gap: 15px;
+    padding: 15px;
+  }
+  .logo-img {
+    width: 70px;
+  }
+  .logo-text h2 {
+    font-size: 1.2rem;
+  }
+  .logo-text p {
+    font-size: 0.9rem;
+  }
+  .bg-img {
+    margin-top: -40px;
+    width: 100%;
+    height: auto;
+  }
+  .right-panel {
+    padding: 60px;
+  }
+}
+
+/* Large laptops/desktops (1366px to 1919px) - e.g., 1920x1080 */
+@media only screen and (min-width: 1366px) and (max-width: 1919px) {
+  .container {
+    flex-direction: row;
+  }
+  .left-panel, .right-panel {
+    max-width: 50vw;
+    padding: 50px;
+    width: 50%;
+  }
+  .logo-block {
+    gap: 15px;
+    padding: 15px;
+  }
+  .logo-img {
+    width: 70px;
+  }
+  .logo-text h2 {
+    font-size: 1.2rem;
+  }
+  .logo-text p {
+    font-size: 0.9rem;
+  }
+  .bg-img {
+    margin-top: -40px;
+    width: 100%;
+    height: auto;
+  }
+  .right-panel {
+    padding: 60px;
+  }
+}
+
+/* Extra large desktops (1920px and up) - e.g., 4K displays */
+@media only screen and (min-width: 1920px) {
+  .container {
+    flex-direction: row;
+  }
+  .left-panel, .right-panel {
+    max-width: 50vw;
+    padding: 60px;
+    width: 50%;
+  }
+  .logo-block {
+    gap: 15px;
+    padding: 20px;
+  }
+  .logo-img {
+    width: 80px;
+  }
+  .logo-text h2 {
+    font-size: 1.3rem;
+  }
+  .logo-text p {
+    font-size: 1rem;
+  }
+  .bg-img {
+    margin-top: -50px;
+    width: 100%;
+    height: auto;
+  }
+  .right-panel {
+    padding: 70px;
+  }
+  .name-fields {
+    gap: 20px;
+  }
+  input, select, button {
+    padding: 14px;
+  }
 }
